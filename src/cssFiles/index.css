@@ -19,6 +19,7 @@ body {
         transparent 0 100px,
         #25283b22 100px 101px
     );
+    overflow-x: hidden;
 }
 
 body::before {
@@ -26,7 +27,7 @@ body::before {
     width: min(1400px, 90vw);
     top: 10%;
     left: 50%;
-    height: 90%;
+    height: 100%;
     transform: translateX(-50%);
     content: "";
     background-image: url(../assets/bg.png);
@@ -60,6 +61,14 @@ body::before {
     font-family: "ICA Rubrik";
 }
 
+.content h2 {
+    font-size: 4.5rem;
+    line-height: 1.2em;
+    color: #25283b;
+    font-family: "ICA Rubrik";
+    margin-left: 40px;
+}
+
 .content .highlight {
     color: #ff6347; /* Highlight color for Harshit Aggarwal */
 }
@@ -75,8 +84,8 @@ body::before {
 }
 
 .model {
-    width: 300px;
-    height: 300px;
+    width: 450px;
+    height: 450px;
     background-image: url(../assets/harshit1.png);
     background-size: cover;
     background-repeat: no-repeat;
@@ -86,42 +95,64 @@ body::before {
     z-index: 1;
 }
 
+.loading {
+    border-right: 0.1em solid #ff6347; /* Blinking cursor effect */
+    animation: blinkCursor 0.75s step-end infinite;
+}
+
+@keyframes blinkCursor {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: #ff6347;
+    }
+}
+
+.web-developer {
+    animation-delay: 0s; /* First role appears immediately */
+}
+
+.programmer {
+    animation-delay: 3s; /* Second role appears after the first */
+}
+
+
 .slider {
     position: absolute;
-    width: 600px;
-    height: 600px;
+    width: 500px; /* Same size as the model */
+    height: 500px; /* Same size as the model */
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    transform-style: preserve-3d;
-    animation: rotateClockwise 20s linear infinite;
+    transform: translate(-50%, -50%); /* Center the slider */
+    animation: rotateClockwise 20s linear infinite; /* Continuous rotation */
     z-index: 0;
 }
 
 @keyframes rotateClockwise {
     from {
-        transform: translate(-50%, -50%) rotate(0deg);
+        transform: translate(-50%, -50%) rotate(0deg); /* Start at 0 degrees */
     }
     to {
-        transform: translate(-50%, -50%) rotate(360deg);
+        transform: translate(-50%, -50%) rotate(360deg); /* Rotate fully */
     }
 }
 
 .slider .item {
     position: absolute;
-    width: 80px;
-    height: 80px;
+    width: 90px; /* Logo size */
+    height: 90px; /* Logo size */
     top: 50%;
     left: 50%;
-    transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translate(0, -250px);
-    transform-origin: center center;
+    transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translateY(-340px); /* Fixed distance from center */
+    transform-origin: 0 0; /* Set origin to the center of the circle */
 }
 
 .slider .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%;
+    border-radius: 50%; /* Make logos circular */
 }
 
 @media screen and (max-width: 1023px) {
