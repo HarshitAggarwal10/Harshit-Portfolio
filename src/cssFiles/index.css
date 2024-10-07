@@ -87,7 +87,7 @@ body.dark-mode .content h2 {
 }
 
 .content .highlight {
-    color: #ff6347; /* Highlight color for Harshit Aggarwal */
+    color: #ff6347; 
 }
 
 .model-container {
@@ -113,7 +113,7 @@ body.dark-mode .content h2 {
 }
 
 .loading {
-    border-right: 0.1em solid #ff6347; /* Blinking cursor effect */
+    border-right: 0.1em solid #ff6347;
     animation: blinkCursor 0.75s step-end infinite;
 }
 
@@ -164,6 +164,35 @@ body.dark-mode .content h2 {
     left: 100%;
 }
 
+.header-buttons {
+    display: flex;
+    align-items: center;
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    gap: 10px; /* Space between buttons */
+    z-index: 10;
+}
+
+.volume-button {
+    cursor: pointer;
+    background-color: #ff6347;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 50%;
+    transition: transform 0.2s ease;
+    margin-right: 90px;
+    top: -20px;
+}
+
+.volume-button:hover {
+    transform: scale(1.1);
+}
+
+.volume-button .playing {
+    color: #4caf50; /* Change color when music is playing */
+}
+
 /* Custom Cursor Styles */
 .custom-cursor {
     width: 20px;
@@ -174,24 +203,22 @@ body.dark-mode .content h2 {
     pointer-events: none;
     transition: transform 0.1s ease-in-out;
     transform: translate(-50%, -50%);
-    z-index: 1000; /* Ensure it appears above other elements */
+    z-index: 1000; 
 }
 
 .cursor-background {
-    width: 60px; /* Adjust size as needed */
-    height: 60px; /* Adjust size as needed */
+    width: 60px; 
+    height: 60px; 
     border-radius: 50%;
-    background-color: rgba(255, 99, 71, 0.4); /* Faded background color */
+    background-color: rgba(255, 99, 71, 0.4); 
     position: absolute;
     pointer-events: none;
     transform: translate(-50%, -50%);
     transition: opacity 0.2s ease-in-out;
-    opacity: 0; /* Initially hidden */
-    z-index: 999; /* Just below the cursor */
+    opacity: 0; 
+    z-index: 999; 
 }
 
-
-/* Dark Mode Toggle */
 .dark-mode-toggle {
     position: fixed;
     top: 20px;
@@ -247,45 +274,43 @@ body.dark-mode .dark-mode-label {
     transform: translateX(-30px);
 }
 
-/* Slider */
 .slider {
     position: absolute;
-    width: 500px; /* Same size as the model */
-    height: 500px; /* Same size as the model */
+    width: 500px;
+    height: 500px;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* Center the slider */
-    animation: rotateClockwise 20s linear infinite; /* Continuous rotation */
+    transform: translate(-50%, -50%);
+    animation: rotateClockwise 20s linear infinite;
     z-index: 0;
 }
 
 @keyframes rotateClockwise {
     from {
-        transform: translate(-50%, -50%) rotate(0deg); /* Start at 0 degrees */
+        transform: translate(-50%, -50%) rotate(0deg);
     }
     to {
-        transform: translate(-50%, -50%) rotate(360deg); /* Rotate fully */
+        transform: translate(-50%, -50%) rotate(360deg);
     }
 }
 
 .slider .item {
     position: absolute;
-    width: 90px; /* Logo size */
-    height: 90px; /* Logo size */
+    width: 90px;
+    height: 90px;
     top: 50%;
     left: 50%;
     transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translateY(-340px); /* Fixed distance from center */
-    transform-origin: 0 0; /* Set origin to the center of the circle */
+    transform-origin: 0 0;
 }
 
 .slider .item img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 50%; /* Make logos circular */
+    border-radius: 50%;
 }
 
-/* Responsive Adjustments */
 @media screen and (max-width: 1023px) {
     .content h1 {
         font-size: 2.5em;

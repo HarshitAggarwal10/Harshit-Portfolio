@@ -10,9 +10,10 @@ import PythonIcon from "../techLogos/python.png";
 import CIcon from "../techLogos/c.png";
 import CppIcon from "../techLogos/cpp.png";
 import FirebaseIcon from "../techLogos/Firebase.png";
+import music from "../assets/dreams.mp3";
+import { FaMusic } from "react-icons/fa";
 
 const roles = ["Web Developer...", "Programmer..."];
-
 const MainPage = () => {
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
@@ -20,12 +21,43 @@ const MainPage = () => {
     const [charIndex, setCharIndex] = useState(0);
     const typingSpeed = 150;
     const deletingSpeed = 100;
-
+    const [isPlaying, setIsPlaying] = useState(false);
+    const [audio, setAudio] = useState(null);
     const [darkMode, setDarkMode] = useState(false);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [showCursorBackground, setShowCursorBackground] = useState(false);
-
     const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
+
+    useEffect(() => {
+        const audioElement = new Audio(music);
+        setAudio(audioElement);
+
+        return () => {
+            if (audioElement) {
+                audioElement.pause();
+                audioElement.currentTime = 0;
+            }
+        };
+    }, []);
+
+    const toggleMusic = () => {
+        if (isPlaying) {
+            audio.pause();
+        } else {
+            audio.play();
+        }
+        setIsPlaying(!isPlaying);
+    };
+
+    useEffect(() => {
+        if (audio) {
+            const handleEnded = () => setIsPlaying(false);
+            audio.addEventListener("ended", handleEnded);
+            return () => {
+                audio.removeEventListener("ended", handleEnded);
+            };
+        }
+    }, [audio]);
 
     useEffect(() => {
         if (darkMode) {
@@ -56,18 +88,16 @@ const MainPage = () => {
         return () => clearTimeout(timer);
     }, [charIndex, isDeleting, roleIndex]);
 
-    // Handle mouse movement
     useEffect(() => {
         const handleMouseMove = (e) => {
             setCursorPos({ x: e.pageX, y: e.pageY });
         };
-        window.addEventListener('mousemove', handleMouseMove);
+        window.addEventListener("mousemove", handleMouseMove);
         return () => {
-            window.removeEventListener('mousemove', handleMouseMove);
+            window.removeEventListener("mousemove", handleMouseMove);
         };
     }, []);
 
-    // Show background on button hover
     const handleMouseEnter = () => {
         setShowCursorBackground(true);
     };
@@ -91,12 +121,17 @@ const MainPage = () => {
 
     return (
         <div className="banner">
-            <div className="dark-mode-toggle">
-                <input type="checkbox" id="dark-mode-checkbox" checked={darkMode} readOnly />
-                <label htmlFor="dark-mode-checkbox" className="dark-mode-label" onClick={toggleDarkMode}>
-                    <span className="moon"></span>
-                    <span className="sun"></span>
-                </label>
+            <div className="header-buttons">
+                <div className="dark-mode-toggle">
+                    <input type="checkbox" id="dark-mode-checkbox" checked={darkMode} readOnly />
+                    <label htmlFor="dark-mode-checkbox" className="dark-mode-label" onClick={toggleDarkMode}>
+                        <span className="moon"></span>
+                        <span className="sun"></span>
+                    </label>
+                </div>
+                <div className="volume-button" onClick={toggleMusic}>
+                    <FaMusic className={isPlaying ? "playing" : ""} />
+                </div>
             </div>
             <div className="content">
                 <h1>
@@ -106,7 +141,9 @@ const MainPage = () => {
                 <h2>
                     I'm a <span className="loading highlight">{displayText}</span>
                 </h2>
-                <button className="get-started" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Get Started</button>
+                <button className="get-started" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                    Get Started
+                </button>
             </div>
             <div className="model-container">
                 <div className="model"></div>
