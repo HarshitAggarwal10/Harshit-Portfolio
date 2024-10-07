@@ -22,6 +22,9 @@ const MainPage = () => {
     const deletingSpeed = 100;
 
     const [darkMode, setDarkMode] = useState(false);
+    const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+    const [showCursorBackground, setShowCursorBackground] = useState(false);
+
     const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
 
     useEffect(() => {
@@ -50,9 +53,28 @@ const MainPage = () => {
         };
 
         const timer = setTimeout(handleTyping, isDeleting ? deletingSpeed : typingSpeed);
-
         return () => clearTimeout(timer);
     }, [charIndex, isDeleting, roleIndex]);
+
+    // Handle mouse movement
+    useEffect(() => {
+        const handleMouseMove = (e) => {
+            setCursorPos({ x: e.pageX, y: e.pageY });
+        };
+        window.addEventListener('mousemove', handleMouseMove);
+        return () => {
+            window.removeEventListener('mousemove', handleMouseMove);
+        };
+    }, []);
+
+    // Show background on button hover
+    const handleMouseEnter = () => {
+        setShowCursorBackground(true);
+    };
+
+    const handleMouseLeave = () => {
+        setShowCursorBackground(false);
+    };
 
     const icons = [
         { src: HtmlIcon, className: "html-icon" },
@@ -84,7 +106,7 @@ const MainPage = () => {
                 <h2>
                     I'm a <span className="loading highlight">{displayText}</span>
                 </h2>
-                <button className="get-started">Get Started</button>
+                <button className="get-started" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>Get Started</button>
             </div>
             <div className="model-container">
                 <div className="model"></div>
@@ -96,6 +118,23 @@ const MainPage = () => {
                     ))}
                 </div>
             </div>
+            <div
+                className="custom-cursor"
+                style={{
+                    left: `${cursorPos.x}px`,
+                    top: `${cursorPos.y}px`,
+                }}
+            />
+            {showCursorBackground && (
+                <div
+                    className="cursor-background"
+                    style={{
+                        left: `${cursorPos.x}px`,
+                        top: `${cursorPos.y}px`,
+                        opacity: showCursorBackground ? 1 : 0,
+                    }}
+                />
+            )}
         </div>
     );
 };
