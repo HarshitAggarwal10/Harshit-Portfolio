@@ -1,3 +1,4 @@
+/* General Reset and Imports */
 @import url("https://fonts.cdnfonts.com/css/ica-rubrik-black");
 @import url("https://fonts.cdnfonts.com/css/poppins");
 
@@ -20,6 +21,12 @@ body {
         #25283b22 100px 101px
     );
     overflow-x: hidden;
+    height: 100%;
+    transition: background-color 0.3s ease-in-out;
+}
+
+body.dark-mode {
+    background-color: #25283b;
 }
 
 body::before {
@@ -59,6 +66,12 @@ body::before {
     line-height: 1.2em;
     color: #25283b;
     font-family: "ICA Rubrik";
+    margin-left: 60px;
+    transition: color 0.3s ease-in-out;
+}
+
+body.dark-mode .content h1 {
+    color: #f0f0f0;
 }
 
 .content h2 {
@@ -66,7 +79,12 @@ body::before {
     line-height: 1.2em;
     color: #25283b;
     font-family: "ICA Rubrik";
-    margin-left: 40px;
+    margin-left: 60px;
+    transition: color 0.3s ease-in-out;
+}
+
+body.dark-mode .content h2 {
+    color: #f0f0f0;
 }
 
 .content .highlight {
@@ -109,15 +127,101 @@ body::before {
     }
 }
 
-.web-developer {
-    animation-delay: 0s; /* First role appears immediately */
+.get-started {
+    width: 150px;
+    height: 50px;
+    padding: 10px 20px;
+    margin-left: 60px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff6347, #ff856e);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
 }
 
-.programmer {
-    animation-delay: 3s; /* Second role appears after the first */
+.get-started {
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s;
 }
 
+.get-started::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: 0.5s;
+}
 
+.get-started:hover::before {
+    left: 100%;
+}
+
+/* Dark Mode Toggle */
+.dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+.dark-mode-label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 60px;
+    height: 30px;
+    background-color: #25283b;
+    border-radius: 30px;
+    position: relative;
+    transition: background-color 0.3s ease-in-out;
+}
+
+body.dark-mode .dark-mode-label {
+    background-color: #ff6347;
+}
+
+.dark-mode-label .moon,
+.dark-mode-label .sun {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    transition: transform 0.3s ease-in-out;
+}
+
+.dark-mode-label .moon {
+    background-color: #f4c542;
+    left: 5px;
+}
+
+.dark-mode-label .sun {
+    background-color: #ff6347;
+    right: 5px;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label .moon {
+    transform: translateX(30px);
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + label .sun {
+    transform: translateX(-30px);
+}
+
+/* Slider */
 .slider {
     position: absolute;
     width: 500px; /* Same size as the model */
@@ -155,6 +259,7 @@ body::before {
     border-radius: 50%; /* Make logos circular */
 }
 
+/* Responsive Adjustments */
 @media screen and (max-width: 1023px) {
     .content h1 {
         font-size: 2.5em;
