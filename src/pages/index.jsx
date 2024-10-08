@@ -12,9 +12,11 @@ import CppIcon from "../techLogos/cpp.png";
 import FirebaseIcon from "../techLogos/Firebase.png";
 import music from "../assets/dreams.mp3";
 import { FaMusic } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 const roles = ["Web Developer...", "Programmer..."];
 const MainPage = () => {
+    const navigate = useNavigate();
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
     const [roleIndex, setRoleIndex] = useState(0);
@@ -138,10 +140,14 @@ const MainPage = () => {
                     Hi, <br />
                     I'm <span className="highlight">Harshit Aggarwal</span>
                 </h1>
-                <h2>
+                <h2 className="sub-heading-index">
                     I'm a <span className="loading highlight">{displayText}</span>
                 </h2>
-                <button className="get-started" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+                <button 
+                className="get-started" 
+                onMouseEnter={handleMouseEnter} 
+                onMouseLeave={handleMouseLeave}
+                onClick={() => navigate('/dashboard')}>
                     Get Started
                 </button>
             </div>

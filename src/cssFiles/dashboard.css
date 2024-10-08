@@ -1,0 +1,110 @@
+.portfolio-dashboard {
+    display: flex;
+    height: 100vh;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);    font-family: 'Poppins', sans-serif;
+    perspective: 1000px; 
+    overflow: hidden; 
+}
+
+.dashboard-left {
+    width: 20%;
+    background-color: #2c3e50;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d; 
+    overflow: hidden; 
+}
+
+.profile {
+    text-align: center;
+    transform-style: preserve-3d;
+}
+
+.profile-pic {
+    width: 135px;
+    height: 140px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    transform: translateZ(30px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-pic:hover {
+    box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
+}
+
+h3 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    transform: translateZ(20px);
+    letter-spacing: 2px;
+}
+
+.dashboard-menu {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+    transform-style: preserve-3d; 
+}
+
+.dashboard-menu li {
+    padding: 1rem 2rem;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.3s, transform 0.3s;
+    color: #ecf0f1;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transform: translateZ(0); 
+    transform-origin: left center; 
+}
+
+.dashboard-menu li:hover {
+    background-color: #34495e;
+    transform: translateZ(10px) scale(1.05);
+}
+
+.dashboard-menu .active {
+    background-color: #16a085;
+    transform: translateZ(15px) scale(1.1); 
+}
+
+.dashboard-right {
+    width: 80%;
+    padding: 3rem;
+    background-color: #ffffff;
+    overflow-y: auto;
+    box-shadow: -2px 0 15px rgba(0, 0, 0, 0.1);
+    transform-style: preserve-3d;
+}
+
+h2 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    letter-spacing: 1px;
+}
+
+.dashboard-right > div {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: fadeIn 0.5s forwards ease;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.menu-text {
+    padding-left: 20px;
+}

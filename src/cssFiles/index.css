@@ -73,7 +73,7 @@ body.dark-mode .content h1 {
     color: #f0f0f0;
 }
 
-.content h2 {
+.content .sub-heading-index {
     font-size: 4.5rem;
     line-height: 1.2em;
     color: #25283b;
