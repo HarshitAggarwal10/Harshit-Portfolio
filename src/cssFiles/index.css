@@ -182,7 +182,7 @@ body.dark-mode .content h2 {
     border-radius: 50%;
     transition: transform 0.2s ease;
     margin-right: 90px;
-    top: -20px;
+    margin-top: -5px;
 }
 
 .volume-button:hover {
@@ -190,10 +190,9 @@ body.dark-mode .content h2 {
 }
 
 .volume-button .playing {
-    color: #4caf50; /* Change color when music is playing */
+    color: #4caf50;
 }
 
-/* Custom Cursor Styles */
 .custom-cursor {
     width: 20px;
     height: 20px;
@@ -285,14 +284,14 @@ body.dark-mode .dark-mode-label {
     z-index: 0;
 }
 
-@keyframes rotateClockwise {
+/* @keyframes rotateClockwise {
     from {
         transform: translate(-50%, -50%) rotate(0deg);
     }
     to {
         transform: translate(-50%, -50%) rotate(360deg);
     }
-}
+} */
 
 .slider .item {
     position: absolute;
@@ -309,7 +308,53 @@ body.dark-mode .dark-mode-label {
     height: 100%;
     object-fit: cover;
     border-radius: 50%;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
+
+.slider .item img:hover {
+    transform: scale(1.2); 
+}
+
+.html-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(227, 76, 38, 0.8)); 
+}
+
+.css-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(38, 77, 228, 0.8));
+}
+
+.js-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(240, 219, 79, 0.8)); 
+}
+
+.react-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(97, 218, 251, 0.8));
+}
+
+.bootstrap-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(86, 61, 124, 0.8)); 
+}
+
+.rboot-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(86, 61, 124, 0.8)); 
+}
+
+.python-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(53, 114, 165, 0.8));
+}
+
+.c-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 136, 204, 0.8)); 
+}
+
+.cpp-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(0, 123, 181, 0.8)); 
+}
+
+.firebase-icon img:hover {
+    filter: drop-shadow(0 0 10px rgba(255, 160, 0, 0.8)); 
+}
+
 
 @media screen and (max-width: 1023px) {
     .content h1 {
