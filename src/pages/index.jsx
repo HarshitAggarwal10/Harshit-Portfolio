@@ -147,7 +147,7 @@ const MainPage = () => {
                 className="get-started" 
                 onMouseEnter={handleMouseEnter} 
                 onMouseLeave={handleMouseLeave}
-                onClick={() => navigate('/dashboard')}>
+                onClick={() => navigate('/home/dashboard')}>
                     Get Started
                 </button>
             </div>

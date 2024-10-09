@@ -12,7 +12,6 @@ const Dashboard = () => {
   const sections = {
     About: (
       <div className="section-content">
-        <h2>About Me</h2>
         <AboutPage />
       </div>
     ),
