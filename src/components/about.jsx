@@ -22,8 +22,13 @@ import Logo11 from "../techLogos/figma.png";
 import Logo12 from "../techLogos/git.png";
 import Logo13 from "../techLogos/mysql.png";
 import Logo14 from "../techLogos/arduino.png";
+import A1 from "../assets/dlist.jpg";
+import A2 from "../assets/htm5.png";
+import { useNavigate } from "react-router-dom";
+import ContactPage from "./contact";
 
 const AboutPage = () => {
+  const navigate = useNavigate();
   useEffect(() => {
     AOS.init({ duration: 1500, once: true });
   }, []);
@@ -34,7 +39,8 @@ const AboutPage = () => {
 
       <div className="quote-container" data-aos="fade-up" data-aos-delay="300">
         <p className="motivational-quote">
-          "Success is not final, failure is not fatal: It is the courage to continue that counts." – Winston Churchill
+          "Success is not final, failure is not fatal: It is the courage to
+          continue that counts." – Winston Churchill
         </p>
       </div>
 
@@ -42,7 +48,9 @@ const AboutPage = () => {
         <div className="info-container about-me">
           <div className="content">
             <h2 className="about-heading">About Me</h2>
-            <h4 className="future-software-engineer">Future Software Engineer</h4>
+            <h4 className="future-software-engineer">
+              Future Software Engineer
+            </h4>
           </div>
 
           <div className="college-img">
@@ -53,9 +61,19 @@ const AboutPage = () => {
 
         <div className="about-paragraph-container">
           <p className="about-paragraph">
-            I am a passionate Software Developer and Frontend Specialist, skilled in building user-friendly interfaces and immersive digital experiences. My technical expertise includes C, C++, HTML, CSS, JavaScript, React, Bootstrap and Git/GitHub. <br />
-            Currently, I am a second-year Computer Science Engineering student at Chitkara University, maintaining a CGPA of 8.50+. Alongside my studies, I contribute as a Web Team Member for Open Source Chandigarh. My projects include Quizopedia—a quiz and learning platform, Bookify, a personal Portfolio Website, and an ongoing Healthcare Platform. <br />
-            I recently had the opportunity to attend Hack the Mountains 5.0 Hackathon in Rajkot, Gujarat, where I collaborated with talented individuals to push the boundaries of innovative solutions.
+            I am a passionate Software Developer and Frontend Specialist,
+            skilled in building user-friendly interfaces and immersive digital
+            experiences. My technical expertise includes C, C++, HTML, CSS,
+            JavaScript, React, Bootstrap and Git/GitHub. <br />
+            Currently, I am a second-year Computer Science Engineering student
+            at Chitkara University, maintaining a CGPA of 8.50+. Alongside my
+            studies, I contribute as a Web Team Member for Open Source
+            Chandigarh. My projects include Quizopedia—a quiz and learning
+            platform, Bookify, a personal Portfolio Website, and an ongoing
+            Healthcare Platform. <br />I recently had the opportunity to attend
+            Hack the Mountains 5.0 Hackathon in Rajkot, Gujarat, where I
+            collaborated with talented individuals to push the boundaries of
+            innovative solutions.
           </p>
         </div>
       </div>
@@ -100,6 +118,23 @@ const AboutPage = () => {
           <img src={Logo13} alt="Logo 10" className="tech-logo" />
           <img src={Logo14} alt="Logo 10" className="tech-logo" />
         </div>
+      </div>
+
+      <div className="achievement-section">
+        <h2 className="achievement-heading">My Achievements</h2>
+        <div className="achievement-pics">
+          <img src={A1} alt="ACHIEVEMENT 1" className="ach-pic" />
+          <img src={A2} alt="ACHIEVEMENT 2" className="ach-pic-htm" />
+        </div>
+      </div>
+
+      <div className="contact-container">
+        <button
+          className="contact-btn"
+          // onClick={() => navigate(<ContactPage />)}
+        >
+          Let's Get Connected!!
+        </button>
       </div>
     </div>
   );

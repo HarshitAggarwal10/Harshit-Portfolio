@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faProjectDiagram, faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import AboutPage from "../components/about";
+import ContactPage from "../components/contact";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
@@ -12,6 +13,7 @@ const Dashboard = () => {
   const sections = {
     About: (
       <div className="section-content">
+        <h2>About Me</h2>
         <AboutPage />
       </div>
     ),
@@ -30,7 +32,7 @@ const Dashboard = () => {
     Contact: (
       <div className="section-content">
         <h2>Contact Me</h2>
-        <p>This is the Contact section content...</p>
+        <ContactPage />
       </div>
     ),
     GitHub: (
