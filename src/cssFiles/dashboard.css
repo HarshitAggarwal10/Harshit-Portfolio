@@ -1,9 +1,10 @@
 .portfolio-dashboard {
     display: flex;
     height: 100vh;
-    background: linear-gradient(135deg, #2c3e50, #4ca1af);    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #2c3e50, #4ca1af);    
+    font-family: 'Poppins', sans-serif;
     perspective: 1000px; 
-    overflow: hidden; 
+    overflow: hidden;
 }
 
 .dashboard-left {
@@ -15,9 +16,9 @@
     align-items: center;
     padding-top: 2rem;
     box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
-    transition: transform 0.5s ease;
     transform-style: preserve-3d; 
-    overflow: hidden; 
+    overflow: hidden;
+    transition: transform 0.4s ease-in-out;
 }
 
 .profile {
@@ -27,7 +28,7 @@
 
 .profile-pic {
     width: 135px;
-    height: 140px;
+    height: 150px;
     border-radius: 50%;
     margin-bottom: 1rem;
     box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
@@ -36,6 +37,7 @@
 }
 
 .profile-pic:hover {
+    transform: rotateY(360deg) scale(1.05);
     box-shadow: 0 20px 25px rgba(0, 0, 0, 0.5);
 }
 
@@ -57,7 +59,7 @@ h3 {
     padding: 1rem 2rem;
     cursor: pointer;
     text-align: left;
-    transition: background 0.3s, transform 0.3s;
+    transition: background 0.3s, transform 0.3s ease;
     color: #ecf0f1;
     font-size: 1.1rem;
     letter-spacing: 1px;
@@ -68,12 +70,12 @@ h3 {
 
 .dashboard-menu li:hover {
     background-color: #34495e;
-    transform: translateZ(10px) scale(1.05);
+    transform: translateZ(10px) scale(1.05) rotateY(10deg);
 }
 
 .dashboard-menu .active {
     background-color: #16a085;
-    transform: translateZ(15px) scale(1.1); 
+    transform: translateZ(15px) scale(1.1) rotateY(0deg); 
 }
 
 .dashboard-right {
@@ -85,24 +87,24 @@ h3 {
     transform-style: preserve-3d;
 }
 
+.dashboard-right .section-content {
+    opacity: 0;
+    transform: translateX(-50px);
+    animation: slideIn 0.5s forwards ease;
+}
+
+@keyframes slideIn {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
 h2 {
     color: #2c3e50;
     margin-bottom: 1rem;
     font-size: 2rem;
     letter-spacing: 1px;
-}
-
-.dashboard-right > div {
-    opacity: 0;
-    transform: translateX(-50px);
-    animation: fadeIn 0.5s forwards ease;
-}
-
-@keyframes fadeIn {
-    to {
-        opacity: 1;
-        transform: translateX(0);
-    }
 }
 
 .menu-text {

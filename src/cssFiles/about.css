@@ -1,0 +1,101 @@
+.about-page {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    text-align: center;
+}
+
+.banner-container {
+    width: 1100px; 
+    height: 430px;
+    background-image: url("../assets/banner.png"); 
+    background-size: cover; 
+    background-position: center; 
+    border-radius: 20px; 
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.quote-container {
+    margin-top: 20px;
+    font-size: 1.5rem; 
+    font-style: italic;
+    font-family: 'Georgia', serif;
+    color: #333;
+    text-align: center;
+    width: 80%; 
+    line-height: 1.5; 
+}
+
+.motivational-quote {
+    font-weight: 600; 
+}
+
+.about-information {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+}
+
+.info-container {
+    flex: 1;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: border 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    position: relative;
+}
+
+.about-me {
+    background-color: rgba(255, 255, 255, 0.5);
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.detail-box {
+    padding: 15px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    transition: border 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover effect for glowing border and blur */
+.info-container:hover {
+    border: 2px solid #4caf50;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+.detail-box:hover {
+    border: 2px solid #4caf50;
+    background-color: rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
+}
+
+/* Specific styles for headings and paragraphs */
+.about-heading {
+    font-size: 1.6rem;
+    color: #333;
+}
+
+.about-paragraph {
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.detail-heading {
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.detail-paragraph {
+    font-size: 1.1rem;
+    color: #333;
+}

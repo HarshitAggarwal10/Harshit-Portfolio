@@ -4,43 +4,44 @@ import MyPic from "../assets/harshit1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faProjectDiagram, faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import AboutPage from "../components/about";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
 
   const sections = {
     About: (
-      <div>
+      <div className="section-content">
         <h2>About Me</h2>
-        <p>This is the About section content...</p>
+        <AboutPage />
       </div>
     ),
     Projects: (
-      <div>
+      <div className="section-content">
         <h2>Projects</h2>
         <p>This is the Projects section content...</p>
       </div>
     ),
     Resume: (
-      <div>
+      <div className="section-content">
         <h2>Resume</h2>
         <p>This is the Resume section content...</p>
       </div>
     ),
     Contact: (
-      <div>
+      <div className="section-content">
         <h2>Contact Me</h2>
         <p>This is the Contact section content...</p>
       </div>
     ),
     GitHub: (
-      <div>
+      <div className="section-content">
         <h2>GitHub</h2>
         <p>This is the GitHub section content...</p>
       </div>
     ),
     LinkedIn: (
-      <div>
+      <div className="section-content">
         <h2>LinkedIn</h2>
         <p>This is the LinkedIn section content...</p>
       </div>
