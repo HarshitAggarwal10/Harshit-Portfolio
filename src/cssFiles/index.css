@@ -58,8 +58,6 @@ body.dark-mode {
     text-align: left;
     padding-right: 20px;
     z-index: 2;
-    margin-left: 50px;
-    margin-top: 60px;
 }
 
 .content h1 {
@@ -67,7 +65,7 @@ body.dark-mode {
     line-height: 1.2em;
     color: #25283b;
     font-family: "ICA Rubrik";
-    margin-left: 60px;
+    margin-left: 120px;
     transition: color 0.3s ease-in-out;
 }
 
@@ -80,7 +78,7 @@ body.dark-mode .content h1 {
     line-height: 1.2em;
     color: #25283b;
     font-family: "ICA Rubrik";
-    margin-left: 60px;
+    margin-left: 120px;
     transition: color 0.3s ease-in-out;
 }
 
@@ -132,7 +130,7 @@ body.dark-mode .content h2 {
     width: 150px;
     height: 50px;
     padding: 10px 20px;
-    margin-left: 60px;
+    margin-left: 120px;
     margin-bottom: 20px;
     font-size: 1rem;
     border-radius: 25px;
