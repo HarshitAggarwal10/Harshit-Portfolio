@@ -128,13 +128,13 @@ const AboutPage = () => {
         </div>
       </div>
 
-      <div className="contact-container">
+      {/* <div className="contact-container">
         <button
           className="contact-btn"
         >
           Let's Get Connected!!
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

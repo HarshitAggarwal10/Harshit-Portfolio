@@ -31,7 +31,6 @@ const Dashboard = () => {
     ),
     Contact: (
       <div className="section-content">
-        <h2>Contact Me</h2>
         <ContactPage />
       </div>
     ),
