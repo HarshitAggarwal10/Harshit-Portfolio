@@ -26,7 +26,6 @@ const Dashboard = () => {
     ),
     Resume: (
       <div className="section-content">
-        {/* <h2> My Resume</h2> */}
         <ResumePage />
       </div>
     ),
@@ -36,18 +35,14 @@ const Dashboard = () => {
         <ContactPage />
       </div>
     ),
-    GitHub: (
-      <div className="section-content">
-        <h2>GitHub</h2>
-        <p>This is the GitHub section content...</p>
-      </div>
-    ),
-    LinkedIn: (
-      <div className="section-content">
-        <h2>LinkedIn</h2>
-        <p>This is the LinkedIn section content...</p>
-      </div>
-    ),
+  };
+
+  const handleGitHubClick = () => {
+    window.open("https://github.com/HarshitAggarwal10", "_blank"); // Open GitHub in a new tab
+  };
+
+  const handleLinkedInClick = () => {
+    window.open("https://www.linkedin.com/in/harshit-aggarwal100306/", "_blank"); // Open LinkedIn in a new tab
   };
 
   const menuItems = {
@@ -71,10 +66,18 @@ const Dashboard = () => {
           <h3>Harshit Aggarwal</h3>
         </div>
         <ul className="dashboard-menu">
-          {Object.keys(sections).map((section) => (
+          {Object.keys(menuItems).map((section) => (
             <li
               key={section}
-              onClick={() => setActiveSection(section)}
+              onClick={() => {
+                if (section === "GitHub") {
+                  handleGitHubClick(); // Redirect to GitHub profile
+                } else if (section === "LinkedIn") {
+                  handleLinkedInClick(); // Redirect to LinkedIn profile
+                } else {
+                  setActiveSection(section); // Set active section for other items
+                }
+              }}
               className={activeSection === section ? "active" : ""}
             >
               <FontAwesomeIcon icon={menuItems[section]} className="menu-icon" />
