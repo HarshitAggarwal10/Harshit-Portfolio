@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { db } from "../firebase"; // Adjust the import path as necessary
+import { collection, addDoc } from "firebase/firestore"; // Import Firestore functions
 import "../cssFiles/contact.css";
 
 const ContactPage = () => {
@@ -16,19 +18,25 @@ const ContactPage = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
-    setFormData({
-      name: "",
-      email: "",
-      message: "",
-    });
+    try {
+      // Add the form data to Firestore
+      await addDoc(collection(db, "contacts"), formData);
+      console.log("Form submitted:", formData);
+      // Reset the form
+      setFormData({
+        name: "",
+        email: "",
+        message: "",
+      });
+    } catch (error) {
+      console.error("Error adding document: ", error);
+    }
   };
 
   return (
     <div className="contact-container">
-      <div className="svg-background"></div>
       <h2>Contact Me</h2>
       <form className="contact-form" onSubmit={handleSubmit}>
         <div className="form-group">
@@ -83,3 +91,18 @@ const ContactPage = () => {
 };
 
 export default ContactPage;
+
+
+
+// import { initializeApp } from "firebase/app";
+
+// const firebaseConfig = {
+//   apiKey: "AIzaSyCrlss8EAJGbItc2oGu5zFOck9x-tCgmVQ",
+//   authDomain: "harshit-portfolio-143e1.firebaseapp.com",
+//   projectId: "harshit-portfolio-143e1",
+//   storageBucket: "harshit-portfolio-143e1.appspot.com",
+//   messagingSenderId: "1055576074540",
+//   appId: "1:1055576074540:web:a753ce52490aae2234e489"
+// };
+
+// const app = initializeApp(firebaseConfig);
