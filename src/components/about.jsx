@@ -131,7 +131,6 @@ const AboutPage = () => {
       <div className="contact-container">
         <button
           className="contact-btn"
-          // onClick={() => navigate(<ContactPage />)}
         >
           Let's Get Connected!!
         </button>

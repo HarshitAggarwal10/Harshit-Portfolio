@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 const roles = ["Web Developer...", "Programmer..."];
 const MainPage = () => {
     const navigate = useNavigate();
+    const [showMusicPopup, setShowMusicPopup] = useState(false);
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
     const [roleIndex, setRoleIndex] = useState(0);
@@ -28,6 +29,7 @@ const MainPage = () => {
     const [darkMode, setDarkMode] = useState(false);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [showCursorBackground, setShowCursorBackground] = useState(false);
+
     const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
 
     useEffect(() => {
@@ -42,15 +44,6 @@ const MainPage = () => {
         };
     }, []);
 
-    const toggleMusic = () => {
-        if (isPlaying) {
-            audio.pause();
-        } else {
-            audio.play();
-        }
-        setIsPlaying(!isPlaying);
-    };
-
     useEffect(() => {
         if (audio) {
             const handleEnded = () => setIsPlaying(false);
@@ -60,6 +53,34 @@ const MainPage = () => {
             };
         }
     }, [audio]);
+
+    const toggleMusic = () => {
+        // Show music popup only if music is not playing
+        if (!isPlaying) {
+            setShowMusicPopup(true);
+        } else {
+            audio.pause();
+            setIsPlaying(false);
+        }
+    };
+
+    const confirmPlayMusic = (confirm) => {
+        if (confirm) {
+            audio.play();
+            setIsPlaying(true);
+        }
+        setShowMusicPopup(false);
+    };
+
+    // Load and check the loading bar status (this should be your actual loading logic)
+    useEffect(() => {
+        // Simulate loading complete
+        const loadingComplete = true; // Replace with actual loading bar state
+        if (loadingComplete) {
+            // Show the music popup when loading is complete
+            setShowMusicPopup(true);
+        }
+    }, []);
 
     useEffect(() => {
         if (darkMode) {
@@ -90,10 +111,11 @@ const MainPage = () => {
         return () => clearTimeout(timer);
     }, [charIndex, isDeleting, roleIndex]);
 
+    const handleMouseMove = (e) => {
+        setCursorPos({ x: e.pageX, y: e.pageY });
+    };
+
     useEffect(() => {
-        const handleMouseMove = (e) => {
-            setCursorPos({ x: e.pageX, y: e.pageY });
-        };
         window.addEventListener("mousemove", handleMouseMove);
         return () => {
             window.removeEventListener("mousemove", handleMouseMove);
@@ -144,10 +166,10 @@ const MainPage = () => {
                     I'm a <span className="loading highlight">{displayText}</span>
                 </h2>
                 <button 
-                className="get-started" 
-                onMouseEnter={handleMouseEnter} 
-                onMouseLeave={handleMouseLeave}
-                onClick={() => navigate('/home/dashboard')}>
+                    className="get-started" 
+                    onMouseEnter={handleMouseEnter} 
+                    onMouseLeave={handleMouseLeave}
+                    onClick={() => navigate('/home/dashboard')}>
                     Get Started
                 </button>
             </div>
@@ -177,6 +199,14 @@ const MainPage = () => {
                         opacity: showCursorBackground ? 1 : 0,
                     }}
                 />
+            )}
+            {/* Music Confirmation Popup */}
+            {showMusicPopup && (
+                <div className="music-popup">
+                    <p className="popup-para">Do you want to play the background music?</p>
+                    <button onClick={() => confirmPlayMusic(true)}>Yes</button>
+                    <button onClick={() => confirmPlayMusic(false)}>No</button>
+                </div>
             )}
         </div>
     );
