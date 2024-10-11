@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { db } from "../firebase"; // Adjust the import path as necessary
-import { collection, addDoc } from "firebase/firestore"; // Import Firestore functions
+// import { db } from "../firebase"; 
+// import { collection, addDoc } from "firebase/firestore";
 import "../cssFiles/contact.css";
 
 const ContactPage = () => {
@@ -21,10 +21,8 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Add the form data to Firestore
       await addDoc(collection(db, "contacts"), formData);
       console.log("Form submitted:", formData);
-      // Reset the form
       setFormData({
         name: "",
         email: "",
