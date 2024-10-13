@@ -7,6 +7,7 @@ import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import AboutPage from "../components/about";
 import ContactPage from "../components/contact";
 import ResumePage from "../components/resume";
+import ProjectsPage from "../components/project";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
@@ -21,7 +22,7 @@ const Dashboard = () => {
     Projects: (
       <div className="section-content">
         <h2>Projects</h2>
-        <p>This is the Projects section content...</p>
+        <ProjectsPage />
       </div>
     ),
     Resume: (
