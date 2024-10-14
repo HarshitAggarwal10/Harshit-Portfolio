@@ -110,53 +110,76 @@ h2 {
 .menu-text {
     padding-left: 20px;
 }
-  
-  .dark-mode {
-    background-color: #181818;
-    color: #f0f0f0;
-  }
-  
-  .portfolio-dashboard.dark {
-    background-color: #121212;
-  }
-  
-  .portfolio-dashboard.dark .dashboard-left {
-    background-color: #1c1c1c;
-  }
-  
-  .portfolio-dashboard.dark .menu-text {
-    color: #e0e0e0;
-  }
-  
-  .portfolio-dashboard.dark .menu-icon {
-    color: #f0f0f0;
-  }
-  
-  /* Toggle switch styles */
-  .dark-mode-toggle input {
-    display: none;
-  }
-  
-  .dark-mode-toggle .dark-mode-label {
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-  }
-  
-  .dark-mode-toggle .moon,
-  .dark-mode-toggle .sun {
-    width: 20px;
-    height: 20px;
-    display: inline-block;
-  }
-  
-  .moon {
-    background: url('../assets/moon-icon.png') no-repeat center;
-    background-size: contain;
-  }
-  
-  .sun {
-    background: url('../assets/sun-icon.png') no-repeat center;
-    background-size: contain;
-  }
-  
+
+/* Add this to your dashboard.css file */
+
+/* Dark mode toggle button specific for the dashboard */
+.dashboard-dark-mode-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.dashboard-dark-mode-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.dashboard-dark-mode-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  height: 30px;
+  background-color: #25283b;
+  border-radius: 30px;
+  position: relative;
+  transition: background-color 0.3s ease-in-out;
+}
+
+body.dark-mode-dashboard .dashboard-dark-mode-label {
+  background-color: #ff6347;
+}
+
+.dashboard-dark-mode-label .moon-dashboard,
+.dashboard-dark-mode-label .sun-dashboard {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.dashboard-dark-mode-label .moon-dashboard {
+  background-color: #f4c542;
+  left: 5px;
+}
+
+.dashboard-dark-mode-label .sun-dashboard {
+  background-color: #ff6347;
+  right: 5px;
+}
+
+.dashboard-dark-mode-toggle input[type="checkbox"]:checked + .dashboard-dark-mode-label .moon-dashboard {
+  transform: translateX(30px);
+}
+
+.dashboard-dark-mode-toggle input[type="checkbox"]:checked + .dashboard-dark-mode-label .sun-dashboard {
+  transform: translateX(-30px);
+}
+
+.dashboard-left.dark-left {
+  background-color: #1e1e1e;
+  color: #ffffff;
+  transition: background-color 0.3s ease;
+}
+
+body.dark-mode-dashboard {
+  background-color: #2c2c2c;
+  color: #f0f0f0;
+}
+
+.dashboard-menu li.active {
+  background-color: #16a085;
+}

@@ -218,7 +218,7 @@ body.dark-mode .content h2 {
     z-index: 999; 
 }
 
-.dark-mode-toggle {
+.index-dark-mode-toggle {
     position: fixed;
     top: 20px;
     right: 20px;
@@ -226,11 +226,11 @@ body.dark-mode .content h2 {
     cursor: pointer;
 }
 
-.dark-mode-toggle input[type="checkbox"] {
+.index-dark-mode-toggle input[type="checkbox"] {
     display: none;
 }
 
-.dark-mode-label {
+.index-dark-mode-label {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,12 +242,12 @@ body.dark-mode .content h2 {
     transition: background-color 0.3s ease-in-out;
 }
 
-body.dark-mode .dark-mode-label {
+body.dark-mode .index-dark-mode-label {
     background-color: #ff6347;
 }
 
-.dark-mode-label .moon,
-.dark-mode-label .sun {
+.index-dark-mode-label .moon,
+.index-dark-mode-label .sun {
     position: absolute;
     width: 20px;
     height: 20px;
@@ -255,23 +255,24 @@ body.dark-mode .dark-mode-label {
     transition: transform 0.3s ease-in-out;
 }
 
-.dark-mode-label .moon {
+.index-dark-mode-label .moon {
     background-color: #f4c542;
     left: 5px;
 }
 
-.dark-mode-label .sun {
+.index-dark-mode-label .sun {
     background-color: #ff6347;
     right: 5px;
 }
 
-.dark-mode-toggle input[type="checkbox"]:checked + label .moon {
+.index-dark-mode-toggle input[type="checkbox"]:checked + label .moon {
     transform: translateX(30px);
 }
 
-.dark-mode-toggle input[type="checkbox"]:checked + label .sun {
+.index-dark-mode-toggle input[type="checkbox"]:checked + label .sun {
     transform: translateX(-30px);
 }
+
 
 .slider {
     position: absolute;

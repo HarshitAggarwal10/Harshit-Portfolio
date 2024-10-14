@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../cssFiles/dashboard.css";
+import "../cssFiles/dashboard.css"; // Make sure you have this file updated
 import MyPic from "../assets/harshit1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -18,14 +18,13 @@ const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
   const [darkMode, setDarkMode] = useState(false);
 
-  // Handle dark mode toggle
   const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
 
   useEffect(() => {
     if (darkMode) {
-      document.body.classList.add("dark-mode");
+      document.body.classList.add("dark-mode-dashboard");
     } else {
-      document.body.classList.remove("dark-mode");
+      document.body.classList.remove("dark-mode-dashboard");
     }
   }, [darkMode]);
 
@@ -75,8 +74,8 @@ const Dashboard = () => {
   };
 
   return (
-    <div className={`portfolio-dashboard ${darkMode ? "dark" : ""}`}>
-      <div className="dashboard-left">
+    <div className={`portfolio-dashboard ${darkMode ? "dark" : "light"}`}>
+      <div className={`dashboard-left ${darkMode ? "dark-left" : ""}`}>
         <div className="profile">
           <img src={MyPic} alt="Profile" className="profile-pic" />
           <h3>Harshit Aggarwal</h3>
@@ -107,20 +106,20 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-right">
-        <div className="dark-mode-toggle">
+        <div className="dashboard-dark-mode-toggle">
           <input
             type="checkbox"
-            id="dark-mode-checkbox"
+            id="dashboard-dark-mode-checkbox"
             checked={darkMode}
             readOnly
           />
           <label
-            htmlFor="dark-mode-checkbox"
-            className="dark-mode-label"
+            htmlFor="dashboard-dark-mode-checkbox"
+            className="dashboard-dark-mode-label"
             onClick={toggleDarkMode}
           >
-            <span className="moon"></span>
-            <span className="sun"></span>
+            <span className="moon-dashboard"></span>
+            <span className="sun-dashboard"></span>
           </label>
         </div>
         {sections[activeSection]}
