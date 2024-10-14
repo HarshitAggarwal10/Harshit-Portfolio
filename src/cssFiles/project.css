@@ -1,20 +1,18 @@
-/* General Styles */
 .projectspage {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     padding: 20px;
 }
 
 .project-info {
-    text-align: center;
-    margin-bottom: -20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: flex-start; /* Align titles to the left */
 }
 
 .project-title, .project-title2 {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.8rem;
+    font-weight: 550;
     font-family: 'Roboto', sans-serif;
     color: #18181b;
     position: relative;
@@ -25,31 +23,38 @@
                  6px 6px 0 #9ca3af, 
                  8px 8px 0 #6b7280, 
                  10px 10px 0 #4b5563;
+    margin-left: 60px; /* Moves title to the left */
 }
 
 .project-title2 {
     margin-top: 60px;
 }
 
-/* Unique Slider Styles for Quizopedia */
-.custom-slider-quiz {
-    position: relative;
-    width: 80%;
-    max-width: 1000px;
-    height: 60vh;
-    perspective: 1000px;
-    margin-top: 80px;
-    margin-left: 60px;
+.project-third {
+    margin-top: 100px;
 }
 
-/* Unique Slider Styles for MindHaven */
+.project-title:before, .project-title2:before {
+    content: "•";
+    font-size: 2rem;
+    color: #1f2937;
+    margin-right: 10px;
+}
+
+.custom-slider-quiz,
 .custom-slider-mind {
     position: relative;
     width: 80%;
     max-width: 1000px;
     height: 60vh;
     perspective: 1000px;
-    margin-top: 40px; /* Adjust this if needed */
+    margin-left: auto;
+    margin-right: auto; 
+    margin-top: 40px;
+}
+
+.custom-slider-mind {
+    margin-top: 80px;
 }
 
 .custom-slider__slide {
@@ -78,7 +83,6 @@
     transform: rotateY(0deg) scale(1);
 }
 
-/* Button Styles */
 .button-container-visit {
     display: flex;
     justify-content: center;
@@ -124,12 +128,101 @@
     box-shadow: 0 6px 0 #111827, 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
-.visit-button:before {
-    background: linear-gradient(145deg, #6b7280, #374151);
-    transform: translate(0, 0);
-    transition: all 0.2s ease;
-}
-
 .visit-button:hover:before {
     transform: translate(5px, 5px);
 }
+
+.under-construction-message {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    color: #1f2937;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-left: 5px solid #1f2937;
+    border-radius: 8px;
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 60px;
+}
+
+.under-construction-message2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-family: 'Roboto', sans-serif;
+    color: #1f2937;
+    background-color: #f9fafb;
+    padding: 20px;
+    border-left: 5px solid #1f2937;
+    border-radius: 8px;
+    margin-top: 80px;
+    width: 80%;
+    margin-left: 60px;
+}
+
+.second-project {
+    margin-top: 50px;
+}
+
+.github-repo-ui {
+    background-color: #f9fafb;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 40px;
+    width: 80%;
+    margin-left: 60px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .repo-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #0366d6;
+    margin-bottom: 10px;
+  }
+  
+  .repo-title a {
+    text-decoration: none;
+    color: #0366d6;
+  }
+  
+  .repo-description {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: #24292e;
+  }
+  
+  .repo-stats {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+    color: #586069;
+  }
+  
+  .repo-stats span {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .repo-buttons {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .repo-buttons a {
+    background-color: #1f2937;
+    color: #ffffff;
+    font-size: 1.25rem;
+    font-weight: bold;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+  
+  .repo-buttons a:hover {
+    background-color: #4b5563;
+  }
+  
