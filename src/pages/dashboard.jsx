@@ -1,8 +1,13 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../cssFiles/dashboard.css";
 import MyPic from "../assets/harshit1.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faProjectDiagram, faFileAlt, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import {
+  faUser,
+  faProjectDiagram,
+  faFileAlt,
+  faEnvelope,
+} from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import AboutPage from "../components/about";
 import ContactPage from "../components/contact";
@@ -11,6 +16,18 @@ import ProjectsPage from "../components/project";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
+  const [darkMode, setDarkMode] = useState(false);
+
+  // Handle dark mode toggle
+  const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
+
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark-mode");
+    } else {
+      document.body.classList.remove("dark-mode");
+    }
+  }, [darkMode]);
 
   const sections = {
     About: (
@@ -38,11 +55,14 @@ const Dashboard = () => {
   };
 
   const handleGitHubClick = () => {
-    window.open("https://github.com/HarshitAggarwal10", "_blank"); // Open GitHub in a new tab
+    window.open("https://github.com/HarshitAggarwal10", "_blank");
   };
 
   const handleLinkedInClick = () => {
-    window.open("https://www.linkedin.com/in/harshit-aggarwal100306/", "_blank"); // Open LinkedIn in a new tab
+    window.open(
+      "https://www.linkedin.com/in/harshit-aggarwal100306/",
+      "_blank"
+    );
   };
 
   const menuItems = {
@@ -55,14 +75,10 @@ const Dashboard = () => {
   };
 
   return (
-    <div className="portfolio-dashboard">
+    <div className={`portfolio-dashboard ${darkMode ? "dark" : ""}`}>
       <div className="dashboard-left">
         <div className="profile">
-          <img
-            src={MyPic}
-            alt="Profile"
-            className="profile-pic"
-          />
+          <img src={MyPic} alt="Profile" className="profile-pic" />
           <h3>Harshit Aggarwal</h3>
         </div>
         <ul className="dashboard-menu">
@@ -71,23 +87,44 @@ const Dashboard = () => {
               key={section}
               onClick={() => {
                 if (section === "GitHub") {
-                  handleGitHubClick(); // Redirect to GitHub profile
+                  handleGitHubClick();
                 } else if (section === "LinkedIn") {
-                  handleLinkedInClick(); // Redirect to LinkedIn profile
+                  handleLinkedInClick();
                 } else {
-                  setActiveSection(section); // Set active section for other items
+                  setActiveSection(section);
                 }
               }}
               className={activeSection === section ? "active" : ""}
             >
-              <FontAwesomeIcon icon={menuItems[section]} className="menu-icon" />
+              <FontAwesomeIcon
+                icon={menuItems[section]}
+                className="menu-icon"
+              />
               <span className="menu-text">{section}</span>
             </li>
           ))}
         </ul>
       </div>
 
-      <div className="dashboard-right">{sections[activeSection]}</div>
+      <div className="dashboard-right">
+        <div className="dark-mode-toggle">
+          <input
+            type="checkbox"
+            id="dark-mode-checkbox"
+            checked={darkMode}
+            readOnly
+          />
+          <label
+            htmlFor="dark-mode-checkbox"
+            className="dark-mode-label"
+            onClick={toggleDarkMode}
+          >
+            <span className="moon"></span>
+            <span className="sun"></span>
+          </label>
+        </div>
+        {sections[activeSection]}
+      </div>
     </div>
   );
 };

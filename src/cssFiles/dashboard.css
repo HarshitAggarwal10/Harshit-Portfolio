@@ -110,3 +110,53 @@ h2 {
 .menu-text {
     padding-left: 20px;
 }
+  
+  .dark-mode {
+    background-color: #181818;
+    color: #f0f0f0;
+  }
+  
+  .portfolio-dashboard.dark {
+    background-color: #121212;
+  }
+  
+  .portfolio-dashboard.dark .dashboard-left {
+    background-color: #1c1c1c;
+  }
+  
+  .portfolio-dashboard.dark .menu-text {
+    color: #e0e0e0;
+  }
+  
+  .portfolio-dashboard.dark .menu-icon {
+    color: #f0f0f0;
+  }
+  
+  /* Toggle switch styles */
+  .dark-mode-toggle input {
+    display: none;
+  }
+  
+  .dark-mode-toggle .dark-mode-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+  }
+  
+  .dark-mode-toggle .moon,
+  .dark-mode-toggle .sun {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
+  
+  .moon {
+    background: url('../assets/moon-icon.png') no-repeat center;
+    background-size: contain;
+  }
+  
+  .sun {
+    background: url('../assets/sun-icon.png') no-repeat center;
+    background-size: contain;
+  }
+  

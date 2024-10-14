@@ -10,12 +10,11 @@ import PythonIcon from "../techLogos/python.png";
 import CIcon from "../techLogos/c.png";
 import CppIcon from "../techLogos/cpp.png";
 import FirebaseIcon from "../techLogos/Firebase.png";
-import music from "../assets/dreams.mp3";
 import { FaMusic } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
 const roles = ["Web Developer...", "Programmer..."];
-const MainPage = () => {
+const MainPage = ({ toggleMusic }) => {
     const navigate = useNavigate();
     const [showMusicPopup, setShowMusicPopup] = useState(false);
     const [displayText, setDisplayText] = useState("");
@@ -24,8 +23,6 @@ const MainPage = () => {
     const [charIndex, setCharIndex] = useState(0);
     const typingSpeed = 150;
     const deletingSpeed = 100;
-    const [isPlaying, setIsPlaying] = useState(false);
-    const [audio, setAudio] = useState(null);
     const [darkMode, setDarkMode] = useState(false);
     const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
     const [showCursorBackground, setShowCursorBackground] = useState(false);
@@ -33,62 +30,13 @@ const MainPage = () => {
     const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
 
     useEffect(() => {
-        const audioElement = new Audio(music);
-        setAudio(audioElement);
-
-        return () => {
-            if (audioElement) {
-                audioElement.pause();
-                audioElement.currentTime = 0;
-            }
-        };
-    }, []);
-
-    useEffect(() => {
-        if (audio) {
-            const handleEnded = () => setIsPlaying(false);
-            audio.addEventListener("ended", handleEnded);
-            return () => {
-                audio.removeEventListener("ended", handleEnded);
-            };
-        }
-    }, [audio]);
-
-    const toggleMusic = () => {
-        // Show music popup only if music is not playing
-        if (!isPlaying) {
-            setShowMusicPopup(true);
-        } else {
-            audio.pause();
-            setIsPlaying(false);
-        }
-    };
-
-    const confirmPlayMusic = (confirm) => {
-        if (confirm) {
-            audio.play();
-            setIsPlaying(true);
-        }
-        setShowMusicPopup(false);
-    };
-
-    // Load and check the loading bar status (this should be your actual loading logic)
-    useEffect(() => {
-        // Simulate loading complete
+        // Load and check the loading bar status (this should be your actual loading logic)
         const loadingComplete = true; // Replace with actual loading bar state
         if (loadingComplete) {
             // Show the music popup when loading is complete
             setShowMusicPopup(true);
         }
     }, []);
-
-    useEffect(() => {
-        if (darkMode) {
-            document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode");
-        }
-    }, [darkMode]);
 
     useEffect(() => {
         const handleTyping = () => {
@@ -154,7 +102,7 @@ const MainPage = () => {
                     </label>
                 </div>
                 <div className="volume-button" onClick={toggleMusic}>
-                    <FaMusic className={isPlaying ? "playing" : ""} />
+                    <FaMusic />
                 </div>
             </div>
             <div className="content">
@@ -200,12 +148,12 @@ const MainPage = () => {
                     }}
                 />
             )}
-            {/* Music Confirmation Popup */}
+            
             {showMusicPopup && (
                 <div className="music-popup">
                     <p className="popup-para">Do you want to play the background music?</p>
-                    <button onClick={() => confirmPlayMusic(true)}>Yes</button>
-                    <button onClick={() => confirmPlayMusic(false)}>No</button>
+                    <button onClick={() => {setShowMusicPopup(false); toggleMusic()}}>Play</button>
+                    <button onClick={() => setShowMusicPopup(false)}>Close</button>
                 </div>
             )}
         </div>

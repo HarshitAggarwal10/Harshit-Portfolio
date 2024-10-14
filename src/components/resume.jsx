@@ -6,7 +6,7 @@ const ResumePage = () => {
     const handleDownload = () => {
         const link = document.createElement("a");
         link.href = Resume; 
-        link.download = "harshit-resume.png"; 
+        link.download = "harshit-resume.pdf"; 
         document.body.appendChild(link);
         link.click();
         document.body.removeChild(link); 

@@ -128,7 +128,6 @@ const ProjectsPage = () => {
         </p>
       </div>
 
-      {/* Open Source Contribution Section */}
       <div className="open-source-section">
         <h1 className="project-title2">Open Source Contributions</h1>
         {error ? (
