@@ -7,17 +7,19 @@ import {
   faProjectDiagram,
   faFileAlt,
   faEnvelope,
+  faHome, // Import the home icon
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import AboutPage from "../components/about";
 import ContactPage from "../components/contact";
 import ResumePage from "../components/resume";
 import ProjectsPage from "../components/project";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
   const [darkMode, setDarkMode] = useState(false);
-
+  const navigate = useNavigate();
   const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
 
   useEffect(() => {
@@ -89,6 +91,8 @@ const Dashboard = () => {
                   handleGitHubClick();
                 } else if (section === "LinkedIn") {
                   handleLinkedInClick();
+                } else if (section === "Home") {
+                  handleHomeClick();
                 } else {
                   setActiveSection(section);
                 }
@@ -106,21 +110,27 @@ const Dashboard = () => {
       </div>
 
       <div className="dashboard-right">
-        <div className="dashboard-dark-mode-toggle">
-          <input
-            type="checkbox"
-            id="dashboard-dark-mode-checkbox"
-            checked={darkMode}
-            readOnly
-          />
-          <label
-            htmlFor="dashboard-dark-mode-checkbox"
-            className="dashboard-dark-mode-label"
-            onClick={toggleDarkMode}
-          >
-            <span className="moon-dashboard"></span>
-            <span className="sun-dashboard"></span>
-          </label>
+        <div className="home-flex">
+          {" "}
+          <div className="dashboard-dark-mode-toggle">
+            <input
+              type="checkbox"
+              id="dashboard-dark-mode-checkbox"
+              checked={darkMode}
+              readOnly
+            />
+            <label
+              htmlFor="dashboard-dark-mode-checkbox"
+              className="dashboard-dark-mode-label"
+              onClick={toggleDarkMode}
+            >
+              <span className="moon-dashboard"></span>
+              <span className="sun-dashboard"></span>
+            </label>
+            <div className="home-button" onClick={() => navigate("/home")}>
+              <FontAwesomeIcon icon={faHome} className="home-icon" />
+            </div>
+          </div>
         </div>
         {sections[activeSection]}
       </div>

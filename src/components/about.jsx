@@ -25,7 +25,6 @@ import Logo14 from "../techLogos/arduino.png";
 import A1 from "../assets/dlist.jpg";
 import A2 from "../assets/htm5.png";
 import { useNavigate } from "react-router-dom";
-import ContactPage from "./contact";
 
 const AboutPage = () => {
   const navigate = useNavigate();
@@ -127,14 +126,6 @@ const AboutPage = () => {
           <img src={A2} alt="ACHIEVEMENT 2" className="ach-pic-htm" />
         </div>
       </div>
-
-      {/* <div className="contact-container">
-        <button
-          className="contact-btn"
-        >
-          Let's Get Connected!!
-        </button>
-      </div> */}
     </div>
   );
 };

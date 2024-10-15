@@ -183,3 +183,15 @@ body.dark-mode-dashboard {
 .dashboard-menu li.active {
   background-color: #16a085;
 }
+
+.home-button {
+  cursor: pointer; /* Change cursor to pointer for clickable */
+  margin-left: -50px; /* Adjust space between toggle and home button */
+  margin-top: -25px;
+}
+
+.home-icon {
+  font-size: 24px; /* Adjust size as needed */
+  color: #272323; /* Default color; adjust for dark mode if necessary */
+}
+
