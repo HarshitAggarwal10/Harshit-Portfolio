@@ -1,4 +1,6 @@
 /* contact.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
 
 .contact-container {
     display: flex;
@@ -123,5 +125,35 @@
   
   .quote:hover {
     background: #e7f4ff; /* Light background on hover */
+  }
+
+  .popup-title {
+    font-family: 'Poppins', sans-serif; /* Using Poppins font */
+    font-size: 24px;
+    font-weight: 600;
+    color: #2d3436;  /* Dark gray for title */
+  }
+  
+  .popup-text {
+    font-family: 'Poppins', sans-serif; /* Using Poppins font */
+    font-size: 18px;
+    font-weight: 400;
+    color: #636e72;  /* Lighter gray for text */
+  }
+  
+  /* Optional: Customize the popup background and buttons */
+  .swal2-popup {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f1f2f6; /* Light gray background */
+  }
+  
+  .swal2-confirm {
+    background-color: #0984e3;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 4px;
+    padding: 10px 20px;
   }
   
