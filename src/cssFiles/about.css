@@ -1,261 +1,368 @@
 .about-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  text-align: center;
 }
 
 .banner-container {
-    width: 1100px;
-    height: 430px;
-    background-image: url("../assets/banner.png");
-    background-size: cover;
-    background-position: center;
-    border-radius: 20px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  width: 1100px;
+  height: 430px;
+  background-image: url("../assets/banner.png");
+  background-size: cover;
+  background-position: center;
+  border-radius: 20px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 .quote-container {
-    margin-top: 20px;
-    font-size: 1.5rem;
-    font-style: italic;
-    font-family: 'Georgia', serif;
-    color: #333;
-    text-align: center;
-    width: 80%;
-    line-height: 1.5;
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-style: italic;
+  font-family: "Georgia", serif;
+  color: #333;
+  text-align: center;
+  width: 80%;
+  line-height: 1.5;
 }
 
 .motivational-quote {
-    font-weight: 600;
+  font-weight: 600;
 }
 
 .about-information {
-    display: flex;
-    flex-direction: column;
-    padding: 20px;
-    width: 100%;
-    border: 2px solid transparent;
-    border-radius: 10px;
-    backdrop-filter: blur(15px);
-    transition: border 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
-    position: relative;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  width: 100%;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  backdrop-filter: blur(15px);
+  transition: border 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  margin-top: 40px;
 }
 
 .info-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .info-container:hover {
-    border: .5px #6b7280;
-    background-color: rgba(255, 255, 255, 0.5);
+  border: 0.5px #6b7280;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 .content {
-    flex: 1;
-    text-align: left;
-    padding-left: 17px;
-    margin-top: 1px;
-    margin-left: -1px;
+  flex: 1;
+  text-align: left;
+  padding-left: 17px;
+  margin-top: 1px;
+  margin-left: -1px;
 }
 
 .about-heading {
-    font-size: 1.8rem;
-    color: #333;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 15px;
-    padding-top: 10px;
+  font-size: 1.8rem;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 15px;
+  padding-top: 10px;
 }
 
 .future-software-engineer {
-    font-size: 1.5rem;
-    color: #6b7280;
-    font-family: 'Arial', sans-serif;
-    margin-bottom: 15px;
+  font-size: 1.5rem;
+  color: #6b7280;
+  font-family: "Arial", sans-serif;
+  margin-bottom: 15px;
 }
 
 .about-paragraph-container {
-    width: 100%;
-    padding: 20px;
-    margin-top: -20px;
+  width: 100%;
+  padding: 20px;
+  margin-top: -20px;
 }
 
 .about-paragraph {
-    font-size: 1.4rem;
-    color: #444;
-    font-family: 'Arial', sans-serif;
-    line-height: 1.5;
-    text-align: justify;
+  font-size: 1.4rem;
+  color: #444;
+  font-family: "Arial", sans-serif;
+  line-height: 1.5;
+  text-align: justify;
 }
 
 .college-img {
-    display: flex;
-    flex-direction: row;
-    align-items: flex-start;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
 }
 
 .college-img img {
-    width: 150px;
-    height: auto;
-    margin-left: 20px;
-    margin-top: -20px;
+  width: 150px;
+  height: auto;
+  margin-left: 20px;
+  margin-top: -20px;
 }
 
-.connect-heading, .my-skill-heading, .achievement-heading {
-    margin-top: 50px;
-    font-size: 2rem;
-    color: #333;
+.connect-heading,
+.my-skill-heading,
+.achievement-heading {
+  margin-top: 50px;
+  font-size: 2rem;
+  color: #333;
 }
 
 .social-icons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    gap: 30px;
-    padding: 20px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 30px;
+  padding: 20px;
 }
 
 .social-icon {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .social-icon img {
-    height: 230px;
-    width: 230px;
-    object-fit: contain;
-    border-radius: 10px;
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
+  height: 230px;
+  width: 230px;
+  object-fit: contain;
+  border-radius: 10px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .platform-name {
-    font-family: 'Arial', sans-serif;
-    font-size: 1.2rem;
-    color: #333;
-    margin-top: 10px;
+  font-family: "Arial", sans-serif;
+  font-size: 1.2rem;
+  color: #333;
+  margin-top: 10px;
 }
 
 .tech-logos {
-    display: grid;
-    grid-template-columns: repeat(7, 2fr); 
-    gap: 50px; 
-    justify-items: center;
-    padding: 20px;
-  }
-  
-  .tech-logo {
-    width: 100px; 
-    height: 100px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-  }
-  
-  .tech-logo:hover {
-    transform: scale(1.2); 
-  }
+  display: grid;
+  grid-template-columns: repeat(7, 2fr);
+  gap: 50px;
+  justify-items: center;
+  padding: 20px;
+}
 
-  .achievement-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-    padding: 20px;
-    text-align: center;
-  }
-  
-  .achievement-heading {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 30px;
-  }
-  
-  .achievement-pics {
-    display: flex;
-    justify-content: space-around;
-    gap: 30px;
-    flex-wrap: wrap;
-    perspective: 1000px; /* Adding perspective to give a 3D effect */
-  }
-  
-  .ach-pic {
-    width: 700px;  /* Set uniform width */
-    height: 500px; /* Set uniform height */
-    object-fit: cover; /* Ensures all images cover the area */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  }
+.tech-logo {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
 
-  .ach-pic-htm {
-    width: 800px;  /* Set uniform width */
-    height: 500px; /* Set uniform height */
-    object-fit: cover; /* Ensures all images cover the area */
-    transition: transform 0.4s ease, box-shadow 0.4s ease;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-  }
-  
-  .ach-pic:hover,.ach-pic-htm:hover {
-    transform: rotateY(15deg) rotateX(5deg) scale(1.05); 
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3);
-    z-index: 2;
-  }
-  
-  .ach-pic:hover::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 15px;
-    background: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 30px rgba(0, 204, 255, 0.7); /* Adds a glowing border effect */
-    z-index: -1; /* Places the glow behind the image */
-  }
+.tech-logo:hover {
+  transform: scale(1.2);
+}
 
-  .contact-container {
-    margin-top: 30px;
-    display: flex;
-    justify-content: center;
+.achievement-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+  padding: 20px;
+  text-align: center;
+}
+
+.achievement-heading {
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+.achievement-pics {
+  display: flex;
+  justify-content: space-around;
+  gap: 30px;
+  flex-wrap: wrap;
+  perspective: 1000px; /* Adding perspective to give a 3D effect */
+}
+
+.ach-pic {
+  width: 700px; /* Set uniform width */
+  height: 500px; /* Set uniform height */
+  object-fit: cover; /* Ensures all images cover the area */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ach-pic-htm {
+  width: 800px; /* Set uniform width */
+  height: 500px; /* Set uniform height */
+  object-fit: cover; /* Ensures all images cover the area */
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.ach-pic:hover,
+.ach-pic-htm:hover {
+  transform: rotateY(15deg) rotateX(5deg) scale(1.05);
+  box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.3);
+  z-index: 2;
+}
+
+.ach-pic:hover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 30px rgba(0, 204, 255, 0.7); /* Adds a glowing border effect */
+  z-index: -1; /* Places the glow behind the image */
+}
+
+.contact-container {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-btn {
-    background-color: black;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    position: relative;
-    overflow: hidden;
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
 }
 
 .contact-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.15);
-    transform: skewX(-20deg);
-    transition: 0.5s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.15);
+  transform: skewX(-20deg);
+  transition: 0.5s;
 }
 
 .contact-btn:hover::before {
-    left: 100%;
+  left: 100%;
 }
 
 .contact-btn:hover {
-    background-color: #242c34;
-    transform: scale(1.08);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  background-color: #242c34;
+  transform: scale(1.08);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 1024px) {
+  .banner-container {
+    width: 100%;
+    height: 300px; /* Adjusted height */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .quote-container {
+    font-size: 1.2rem;
+    width: 90%; /* Adjusted width */
+    margin-top: 15px;
+  }
+
+  .about-information {
+    padding: 15px;
+    margin-top: 30px;
+  }
+
+  .info-container {
+    flex-direction: row; /* Stack items vertically */
+    align-items: center;
+  }
+
+  .about-heading {
+    font-size: 1.5rem; /* Reduced font size */
+  }
+
+  .future-software-engineer {
+    font-size: 1.3rem;
+  }
+
+  .college-img {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .college-img img {
+    width: 120px; /* Adjusted size */
+    height: auto;
+    margin-left: 10px;
+    margin-top: 0;
+  }
+
+  .about-paragraph {
+    font-size: 1.2rem; /* Adjusted font size */
+    line-height: 1.4;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-around; /* Space evenly */
+    gap: 20px;
+  }
+
+  .social-icon {
+    flex: 0 0 calc(50% - 20px); /* Take 50% of the row minus the gap */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icon img {
+    width: 180px; /* Adjusted icon size */
+    height: 180px;
+  }
+
+  .tech-logos {
+    grid-template-columns: repeat(6, 2fr); /* Adjusted grid for smaller width */
+    gap: 30px;
+  }
+
+  .tech-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .achievement-pics {
+    flex-direction: column; /* Stack achievements vertically */
+    align-items: center;
+  }
+
+  .ach-pic,
+  .ach-pic-htm {
+    width: 90%; /* Make them responsive */
+    height: auto;
+  }
+
+  .connect-heading,
+  .my-skill-heading,
+  .achievement-heading {
+    font-size: 1.8rem; /* Slightly reduced headings */
+  }
+
+  .contact-btn {
+    font-size: 1rem; /* Adjusted font size */
+    padding: 8px 15px;
+  }
 }

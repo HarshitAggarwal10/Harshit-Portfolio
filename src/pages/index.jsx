@@ -122,36 +122,36 @@ const MainPage = ({ toggleMusic }) => {
           <FaMusic />
         </div>
       </div>
-      <div className="content">
-        <h1>
-          Hi, <br />
-          I'm <span className="highlight">Harshit Aggarwal</span>
-        </h1>
-        <h2 className="sub-heading-index">
-          I'm a <span className="loading highlight">{displayText}</span>
-        </h2>
-        <button
-          className="get-started"
-          onMouseEnter={handleMouseEnter}
-          onMouseLeave={handleMouseLeave}
-          onClick={() => navigate("/home/dashboard")}
-        >
-          Get Started
-        </button>
-      </div>
-      <div className="model-container">
-        <div className="model"></div>
-        <div className="slider" style={{ "--quantity": icons.length }}>
-          {icons.map((icon, index) => (
-            <div
-              key={index}
-              className={`item ${icon.className}`}
-              style={{ "--position": index + 1 }}
-            >
-              <img src={icon.src} alt={`Tech Icon ${index + 1}`} />
-            </div>
-          ))}
+        <div className="content">
+          <h1>
+            Hi, <br />
+            I'm <span className="highlight">Harshit Aggarwal</span>
+          </h1>
+          <h2 className="sub-heading-index">
+            I'm a <span className="loading highlight">{displayText}</span>
+          </h2>
+          <button
+            className="get-started"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onClick={() => navigate("/home/dashboard")}
+          >
+            Get Started
+          </button>
         </div>
+        <div className="model-container">
+          <div className="model"></div>
+          <div className="slider" style={{ "--quantity": icons.length }}>
+            {icons.map((icon, index) => (
+              <div
+                key={index}
+                className={`item ${icon.className}`}
+                style={{ "--position": index + 1 }}
+              >
+                <img src={icon.src} alt={`Tech Icon ${index + 1}`} />
+              </div>
+            ))}
+          </div>
       </div>
       <div
         className="custom-cursor"

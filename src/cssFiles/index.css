@@ -357,60 +357,6 @@ body.dark-mode .index-dark-mode-label {
 }
 
 
-@media screen and (max-width: 1023px) {
-    .content h1 {
-        font-size: 2.5em;
-    }
-
-    .model-container {
-        width: 250px;
-        height: 250px;
-    }
-
-    .model {
-        width: 250px;
-        height: 250px;
-    }
-
-    .slider {
-        width: 500px;
-        height: 500px;
-    }
-
-    .slider .item {
-        width: 60px;
-        height: 60px;
-        transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translate(0, -200px);
-    }
-}
-
-@media screen and (max-width: 767px) {
-    .content h1 {
-        font-size: 2em;
-    }
-
-    .model-container {
-        width: 200px;
-        height: 200px;
-    }
-
-    .model {
-        width: 200px;
-        height: 200px;
-    }
-
-    .slider {
-        width: 400px;
-        height: 400px;
-    }
-
-    .slider .item {
-        width: 50px;
-        height: 50px;
-        transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translate(0, -150px);
-    }
-}
-
 .music-popup {
     position: fixed;
     top: 50%;
@@ -440,4 +386,79 @@ body.dark-mode .index-dark-mode-label {
     width: 110px;
     border-radius: 10px;
     font-size: 1.1rem;
+}
+
+@media screen and (max-width: 1024px) {
+
+    body {
+        width: 95%;
+        overflow: hidden;
+    }
+
+    .banner {
+        overflow: hidden;
+    }
+
+    .banner::before {
+        overflow: hidden;
+    }
+
+    .content h1 {
+        font-size: 2.5em;
+        margin-left: 10px; 
+    }
+
+    .content .sub-heading-index {
+        font-size: 3rem; /* Adjust sub-heading font size */
+        margin-left: 10px; /* Adjust margin for better alignment */
+    }
+
+    .get-started {
+        width: 130px; /* Slightly reduce button size */
+        height: 45px; /* Adjust height */
+        font-size: 0.9rem; /* Adjust button font size */
+        margin-left: 10px; /* Align with text */
+    }
+
+    .slider {
+        width: 350px; /* Adjust the width for smaller screens */
+        height: 350px; /* Adjust height accordingly */
+    }
+
+    .slider .item {
+        width: 80px; /* Reduce the size of the items in the slider */
+        height: 80px; /* Adjust height */
+        transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translateY(-250px); /* Adjust translation */
+    }
+
+    .model {
+        width: 300px; /* Resize model for smaller screens */
+        height: 300px;
+    }
+    
+    .volume-button {
+        margin-right: 120px; /* Adjust position of the volume button */
+        margin-top: 0px;
+    }
+
+    .index-dark-mode-toggle {
+        right: 15px; /* Adjust toggle position */
+        margin-right: 50px;
+    }
+
+    .music-popup {
+        width: 40%; /* Make popup responsive */
+        padding: 15px;
+        height: 180px;
+    }
+
+    .music-popup .popup-para {
+        font-size: 1.3rem; /* Reduce font size of popup text */
+    }
+
+    .music-popup button {
+        width: 100px;
+        font-size: 1rem;
+        padding: 8px 12px; /* Adjust padding for buttons */
+    }
 }
