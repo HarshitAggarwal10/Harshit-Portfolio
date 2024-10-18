@@ -191,8 +191,8 @@ body.dark-mode-dashboard {
 }
 
 .home-icon {
-  font-size: 24px; /* Adjust size as needed */
-  color: #272323; /* Default color; adjust for dark mode if necessary */
+  font-size: 24px; 
+  color: #272323; 
 }
 
 @media screen and (max-width: 1024px) {

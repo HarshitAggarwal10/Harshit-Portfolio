@@ -12,22 +12,46 @@ import Project2b from "../assets/p08.png";
 
 const ProjectsPage = () => {
   const [repoData, setRepoData] = useState(null);
+  const [heritageRepoData, setHeritageRepoData] = useState(null);
   const [error, setError] = useState(null);
 
-  useEffect(() => {
-    // Fetch GitHub Repo Data
-    const fetchRepoData = async () => {
+  const retryRequest = async (url, retries = 5, delay = 1000) => {
+    for (let i = 0; i < retries; i++) {
       try {
-        const response = await axios.get(
-          "https://api.github.com/repos/Open-Source-Chandigarh/MeTube"
-        );
-        setRepoData(response.data);
+        const response = await axios.get(url);
+        return response.data;
       } catch (err) {
-        setError("Failed to fetch repository data");
+        if (i === retries - 1) {
+          throw err; // If all retries fail, throw the error.
+        }
+        await new Promise((resolve) => setTimeout(resolve, delay * (i + 1)));
+      }
+    }
+  };
+
+  useEffect(() => {
+    let isMounted = true;
+
+    // Fetch both GitHub Repo Data with retries
+    const fetchRepos = async () => {
+      try {
+        const [meTubeData, heritageData] = await Promise.all([
+          retryRequest("https://api.github.com/repos/Open-Source-Chandigarh/MeTube"),
+          retryRequest("https://api.github.com/repos/Open-Source-Chandigarh/Heritage-Threads"),
+        ]);
+
+        if (isMounted) {
+          setRepoData(meTubeData);
+          setHeritageRepoData(heritageData);
+        }
+      } catch (err) {
+        if (isMounted) {
+          setError("Failed to fetch repository data after multiple attempts.");
+        }
       }
     };
 
-    fetchRepoData();
+    fetchRepos();
 
     // Image Slider Logic for Quiz and Mind Projects
     let currentQuizIndex = 0;
@@ -59,6 +83,7 @@ const ProjectsPage = () => {
     const mindSliderInterval = setInterval(nextMindImage, 3000);
 
     return () => {
+      isMounted = false;
       clearInterval(quizSliderInterval);
       clearInterval(mindSliderInterval);
     };
@@ -150,6 +175,44 @@ const ProjectsPage = () => {
             <div className="repo-buttons">
               <a
                 href={repoData.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="visit-button"
+              >
+                View on GitHub
+              </a>
+            </div>
+          </div>
+        ) : (
+          <p>Loading repository details...</p>
+        )}
+      </div>
+
+      <div className="open-source-section">
+        {error ? (
+          <p>{error}</p>
+        ) : heritageRepoData ? (
+          <div className="github-repo-ui">
+            <h2 className="repo-title">
+              <a
+                href={heritageRepoData.html_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {heritageRepoData.full_name}
+              </a>
+            </h2>
+            <p className="repo-description">{heritageRepoData.description}</p>
+
+            <div className="repo-stats">
+              <span>⭐ Stars: {heritageRepoData.stargazers_count}</span>
+              <span>🍴 Forks: {heritageRepoData.forks_count}</span>
+              <span>🐛 Issues: {heritageRepoData.open_issues_count}</span>
+            </div>
+
+            <div className="repo-buttons">
+              <a
+                href={heritageRepoData.html_url}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="visit-button"
