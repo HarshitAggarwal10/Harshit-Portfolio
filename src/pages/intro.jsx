@@ -33,9 +33,9 @@ const Intro = () => {
         <source src={IntroVideo} type="video/mp4" />
       </video>
       <div className="loading-content">
-        <h1 style={{ fontSize }}>Future</h1>
-        <h1 style={{ fontSize }}>Software Engineer</h1>
-        <h1 style={{ fontSize }}>Loading...</h1>
+        <h1 style={{ fontSize }} className='intro-heading'>Future</h1>
+        <h1 style={{ fontSize }} className='intro-heading'>Software Engineer</h1>
+        <h1 style={{ fontSize }} className='intro-heading'>Loading...</h1>
         <div className="loading-bar">
           <div
             className="loading-progress"

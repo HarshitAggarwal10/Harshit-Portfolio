@@ -7,7 +7,7 @@
     box-sizing: border-box;
 }
 
-body {
+.index-page-portfolio {
     background-color: #d2d2d2;
     background-image: repeating-linear-gradient(
         to right,
@@ -24,7 +24,7 @@ body {
     transition: background-color 0.3s ease-in-out;
 }
 
-body.dark-mode {
+.index-page-portfolio.dark-mode {
     background-color: #25283b;
 }
 
@@ -69,7 +69,7 @@ body.dark-mode {
     transition: color 0.3s ease-in-out;
 }
 
-body.dark-mode .content h1 {
+.index-page-portfolio.dark-mode .content h1 {
     color: #f0f0f0;
 }
 
@@ -82,7 +82,7 @@ body.dark-mode .content h1 {
     transition: color 0.3s ease-in-out;
 }
 
-body.dark-mode .content h2 {
+.index-page-portfolio.dark-mode .content h2 {
     color: #f0f0f0;
 }
 
@@ -242,7 +242,7 @@ body.dark-mode .content h2 {
     transition: background-color 0.3s ease-in-out;
 }
 
-body.dark-mode .index-dark-mode-label {
+.index-page-portfolio.dark-mode .index-dark-mode-label {
     background-color: #ff6347;
 }
 
@@ -388,10 +388,10 @@ body.dark-mode .index-dark-mode-label {
     font-size: 1.1rem;
 }
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
 
-    body {
-        width: 95%;
+    .index-page-portfolio {
+        width: 100%;
         overflow: hidden;
     }
 
@@ -462,3 +462,96 @@ body.dark-mode .index-dark-mode-label {
         padding: 8px 12px; /* Adjust padding for buttons */
     }
 }
+
+@media (max-width: 769px) {
+    .model-container {
+        align-items: center; /* Center align the items */
+        justify-content: center; /* Vertically center */
+        width: 100%; /* Ensure full width */
+        margin-top: -150px;
+        margin-left: -600px;
+    }
+
+    .model {
+        width: 250px; /* Adjust the size of the model for smaller screens */
+        height: 250px; 
+        margin-bottom: 20px; /* Add space between model and slider */
+    }
+
+    .slider {
+        width: 300px; /* Adjust the slider width */
+        height: 300px; /* Adjust the slider height */
+        margin-bottom: 20px; /* Space below the slider */
+    }
+
+    .slider .item {
+        width: 70px; /* Resize individual items */
+        height: 70px; 
+        transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translateY(-220px); /* Adjust distance */
+    }
+
+    .content {
+        text-align: center; /* Center the text on small screens */
+        margin-bottom: 20px; /* Space between text and model-container */
+    }
+
+    .content h1 {
+        font-size: 2.8rem; /* Adjust font size for smaller screens */
+        margin-top: 500px;
+    }
+
+    .content .sub-heading-index {
+        font-size: 3rem; /* Adjust the sub-heading size */
+    }
+
+    .get-started {
+        width: 150px; /* Adjust button size */
+        font-size: 1rem; /* Adjust button font size */
+    }
+
+    .header-buttons {
+        margin-right: -60px;
+    }
+
+    .index-dark-mode-toggle {
+        margin-right: -10px;
+    }
+
+    .music-popup {
+        height: fit-content;
+    }
+}
+
+@media (max-width: 475px) {
+    .model {
+        width: 200px; 
+        height: 200px;
+    }
+
+    .slider {
+        width: 250px; /* Adjust the slider width */
+        height: 250px; /* Adjust the slider height */
+    }
+
+    .slider .item {
+        width: 60px; 
+        height: 60px;
+        transform: rotate(calc(var(--position) * (360deg / var(--quantity)))) translateY(-200px); /* Adjust distance */
+    }
+
+    .content h1 {
+        font-size: 1.7rem;
+    }
+
+    .content .sub-heading-index {
+        font-size: 1.8rem; 
+    }
+
+    .get-started {
+        width: 130px; 
+        font-size: 0.9rem; 
+    }
+}
+
+
+

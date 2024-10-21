@@ -25,7 +25,7 @@
     color: black;
   }
   
-  h1 {
+  .intro-heading {
     font-size: 2.7rem;
     margin-bottom: 30px;
     margin-left: 50px;
@@ -48,28 +48,3 @@
     transition: width 0.1s ease-in-out;
   }
   
-
-/*  @media (max-width: 1024px) {
-    .intro-container {
-      height: 100vh;
-    }
-  
-    h1 {
-      font-size: 2.2rem; 
-      margin-bottom: 20px;
-      margin-left: 50px;
-    }
-  
-    .loading-bar {
-      width: 70%; 
-      margin-left: 80px;
-    }
-  
-    .loading-content {
-      color: #333;
-    }
-  
-    .loading-progress {
-      background-color: #3e8e41;
-    }
-  } */

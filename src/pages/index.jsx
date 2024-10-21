@@ -28,11 +28,14 @@ const MainPage = ({ toggleMusic }) => {
   const [showCursorBackground, setShowCursorBackground] = useState(false);
 
   const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
+
+  // Apply dark mode class to body or remove it
   useEffect(() => {
+    const pageElement = document.querySelector('.index-page-portfolio');
     if (darkMode) {
-      document.body.classList.add("dark-mode");
+      pageElement.classList.add("dark-mode");
     } else {
-      document.body.classList.remove("dark-mode");
+      pageElement.classList.remove("dark-mode");
     }
   }, [darkMode]);
 
@@ -100,28 +103,29 @@ const MainPage = ({ toggleMusic }) => {
   ];
 
   return (
-    <div className="banner">
-      <div className="header-buttons">
-        <div className="index-dark-mode-toggle">
-          <input
-            type="checkbox"
-            id="index-dark-mode-checkbox"
-            checked={darkMode}
-          />
-          <label
-            htmlFor="index-dark-mode-checkbox"
-            className="index-dark-mode-label"
-            onClick={toggleDarkMode}
-          >
-            <span className="moon"></span>
-            <span className="sun"></span>
-          </label>
-        </div>
+    <div className={`index-page-portfolio ${darkMode ? "dark-mode" : ""}`}>
+      <div className="banner">
+        <div className="header-buttons">
+          <div className="index-dark-mode-toggle">
+            <input
+              type="checkbox"
+              id="index-dark-mode-checkbox"
+              checked={darkMode}
+              onChange={toggleDarkMode} // Link checkbox to toggle function
+            />
+            <label
+              htmlFor="index-dark-mode-checkbox"
+              className="index-dark-mode-label"
+            >
+              <span className="moon"></span>
+              <span className="sun"></span>
+            </label>
+          </div>
 
-        <div className="volume-button" onClick={toggleMusic}>
-          <FaMusic />
+          <div className="volume-button" onClick={toggleMusic}>
+            <FaMusic />
+          </div>
         </div>
-      </div>
         <div className="content">
           <h1>
             Hi, <br />
@@ -139,7 +143,7 @@ const MainPage = ({ toggleMusic }) => {
             Get Started
           </button>
         </div>
-        <div className="model-container">
+        <div className="model-container harshit-with-logos">
           <div className="model"></div>
           <div className="slider" style={{ "--quantity": icons.length }}>
             {icons.map((icon, index) => (
@@ -152,41 +156,40 @@ const MainPage = ({ toggleMusic }) => {
               </div>
             ))}
           </div>
-      </div>
-      <div
-        className="custom-cursor"
-        style={{
-          left: `${cursorPos.x}px`,
-          top: `${cursorPos.y}px`,
-        }}
-      />
-      {showCursorBackground && (
+        </div>
         <div
-          className="cursor-background"
+          className="custom-cursor"
           style={{
             left: `${cursorPos.x}px`,
             top: `${cursorPos.y}px`,
-            opacity: showCursorBackground ? 1 : 0,
           }}
         />
-      )}
-
-      {showMusicPopup && (
-        <div className="music-popup">
-          <p className="popup-para">
-            Do you want to play the background music?
-          </p>
-          <button
-            onClick={() => {
-              setShowMusicPopup(false);
-              toggleMusic();
+        {showCursorBackground && (
+          <div
+            className="cursor-background"
+            style={{
+              left: `${cursorPos.x}px`,
+              top: `${cursorPos.y}px`,
+              opacity: showCursorBackground ? 1 : 0,
             }}
-          >
-            Play
-          </button>
-          <button onClick={() => setShowMusicPopup(false)}>Close</button>
-        </div>
-      )}
+          />
+        )}
+
+        {showMusicPopup && (
+          <div className="music-popup">
+            <p className="popup-para">Do you want to play the background music?</p>
+            <button
+              onClick={() => {
+                setShowMusicPopup(false);
+                toggleMusic();
+              }}
+            >
+              Play
+            </button>
+            <button onClick={() => setShowMusicPopup(false)}>Close</button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
