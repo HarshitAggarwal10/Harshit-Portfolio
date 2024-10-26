@@ -157,3 +157,8 @@
     padding: 10px 20px;
   }
   
+  @media (max-width: 426px) {
+    .contact-container {
+      margin-top: 50px;
+    }
+  }

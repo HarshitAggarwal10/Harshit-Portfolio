@@ -3,9 +3,8 @@ import { initializeApp } from "firebase/app";
 import { getDatabase, ref, push, set } from "firebase/database";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
-import "../cssFiles/contact.css"; // Assuming you have your custom styles here
+import "../cssFiles/contact.css";
 
-// Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyCrlss8EAJGbItc2oGu5zFOck9x-tCgmVQ",
   authDomain: "harshit-portfolio-143e1.firebaseapp.com",
@@ -16,13 +15,10 @@ const firebaseConfig = {
   databaseURL: "https://harshit-portfolio-143e1-default-rtdb.firebaseio.com/",
 };
 
-// Initialize Firebase app
 const app = initializeApp(firebaseConfig);
 
-// Initialize Realtime Database
 const db = getDatabase(app);
 
-// Initialize SweetAlert2 with React content
 const MySwal = withReactContent(Swal);
 
 const ContactPage = () => {
@@ -43,21 +39,18 @@ const ContactPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      // Push data to Firebase Realtime Database
       const contactFormRef = ref(db, "contact-form");
       const newContactRef = push(contactFormRef);
       await set(newContactRef, formData);
 
       console.log("Form submitted to Realtime Database:", formData);
 
-      // Clear form fields after submission
       setFormData({
         name: "",
         email: "",
         message: "",
       });
 
-      // Show success popup with custom styles
       MySwal.fire({
         icon: "success",
         title: "Message Sent!",

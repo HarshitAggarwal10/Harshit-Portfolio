@@ -337,3 +337,13 @@ body.dark-mode-dashboard {
     width: 100%;
   }
 }
+
+ @media (max-width: 426px) {
+  .dashboard-menu {
+    display: none;
+  }
+
+  .section-content h2 {
+    font-size: 1.5em;
+  }
+} 

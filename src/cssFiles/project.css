@@ -262,3 +262,51 @@
         margin-left: 45px;
     }
 }
+
+@media (max-width: 426px) {
+  .project-title {
+    font-size: 20px;
+    margin-left: -5px;
+  }
+
+  .custom-slider-quiz,.custom-slider-mind {
+    width: 100%;
+    margin-top: -50px;
+  }
+
+  .button-container-visit {
+    margin-top: -20px;
+  }
+
+  .project-info {
+    flex-direction: column;
+  }
+
+  .under-construction-message, .under-construction-message2 {
+    width: 100%;
+    height: fit-content;
+    margin-left: 4px;
+  }
+
+  .project-third {
+    margin-top: -30px;
+  }
+
+  .under-construction-message2 {
+    margin-top: 40px;
+  }
+
+  .github-repo-ui {
+    width: 100%;
+    height: fit-content;
+    margin-left: -5px;
+  }
+
+  .github-repo-ui h2 {
+    font-size: 15px;
+  }
+
+  .github-repo-ui .repo-stats {
+    font-size: 15px;
+  }
+}

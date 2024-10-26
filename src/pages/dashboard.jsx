@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import "../cssFiles/dashboard.css"; // Make sure you have this file updated
-import MyPic from "../assets/harshit1.png";
 import MyLogo from "../assets/A.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {

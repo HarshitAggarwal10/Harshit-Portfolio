@@ -67,3 +67,10 @@
         margin-top: 60px;
     }
 }
+
+@media (max-width: 426px) {
+    .resume-image {
+        width: 400px;
+        margin-top: 35px;
+    }
+}
