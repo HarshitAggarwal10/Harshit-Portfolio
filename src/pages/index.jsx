@@ -143,7 +143,7 @@ const MainPage = ({ toggleMusic }) => {
             Get Started
           </button>
         </div>
-        <div className="model-container harshit-with-logos">
+        <div className="model-container">
           <div className="model"></div>
           <div className="slider" style={{ "--quantity": icons.length }}>
             {icons.map((icon, index) => (
