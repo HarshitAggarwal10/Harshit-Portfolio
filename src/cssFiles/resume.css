@@ -6,11 +6,11 @@
 }
 
 .resume-image {
-    width: 850px;
+    width: 1000px;
     height: auto; 
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); 
     border-radius: 8px; 
-    margin-top: 80px;
+    margin-top: 50px;
 }
 
 .download-button {
@@ -52,4 +52,18 @@
 
 .download-button:focus {
     outline: none; /* Remove default focus outline */
+}
+
+@media (max-width: 1025px) {
+    .resume-image {
+        width: 850px;
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 769px) {
+    .resume-image {
+        width: 650px;
+        margin-top: 60px;
+    }
 }

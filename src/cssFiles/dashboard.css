@@ -256,11 +256,83 @@ body.dark-mode-dashboard {
   }
 
   .menu-text {
-    display: none; /* Hide menu text for mobile view */
+    display: none; 
   }
 
   .dashboard-right {
     margin-top: 100px; /* Space to prevent content overlap */
+    padding: 20px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 769px) {
+  .dashboard-left {
+    width: 100%; /* Full width for the navbar */
+    height: auto; /* Auto height to adjust with content */
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: row; /* Align items horizontally */
+    justify-content: space-between;
+    padding: 10px; /* Padding for spacing */
+    z-index: 1000; /* Stay on top of other elements */
+  }
+
+  .profile {
+    display: flex;
+    flex-direction: row; /* Align profile picture and name horizontally */
+    align-items: center;
+    gap: 10px; /* Adjust space between profile picture and name */
+  }
+
+  .profile-pic {
+    width: 35px; /* Size of the profile picture */
+    height: 30px;
+    background-image: url('../assets/A.png'); /* Use personal picture */
+    background-size: cover; /* Ensure the image covers the container */
+    background-position: center; /* Center the image */
+    margin-top: 16px;
+  }
+
+  .profile h3 {
+    color: white;
+    font-size: 15px;
+    margin: 0; /* Remove margins around the name */
+    white-space: nowrap; /* Prevent the name from wrapping */
+  }
+
+  .dashboard-menu {
+    display: flex;
+    flex-direction: row; /* Align menu items horizontally */
+    justify-content: flex-end;
+    gap: 10px; /* Space between menu items */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .dashboard-menu li {
+    cursor: pointer;
+    color: white;
+  }
+
+  .dashboard-menu li.active {
+    font-weight: bold;
+  }
+
+  .menu-icon {
+    font-size: 18px; /* Adjust icon size */
+  }
+
+  .menu-text {
+    display: none; 
+  }
+
+  .dashboard-right {
+    margin-top: 80px; /* Space to prevent content overlap */
     padding: 20px;
     width: 100%;
   }

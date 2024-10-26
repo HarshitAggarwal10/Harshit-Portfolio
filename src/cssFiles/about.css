@@ -366,3 +366,106 @@
     padding: 8px 15px;
   }
 }
+
+
+@media (max-width: 769px) {
+  .banner-container {
+    width: 100%;
+    height: 270px; /* Adjusted height */
+    background-size: cover;
+    background-position: center;
+    border-radius: 15px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .quote-container {
+    font-size: 1.2rem;
+    width: 90%; /* Adjusted width */
+    margin-top: 15px;
+  }
+
+  .about-information {
+    padding: 15px;
+    margin-top: 30px;
+  }
+
+  .info-container {
+    flex-direction: row; /* Stack items vertically */
+    align-items: center;
+  }
+
+  .about-heading {
+    font-size: 1.5rem; /* Reduced font size */
+  }
+
+  .future-software-engineer {
+    font-size: 1.3rem;
+  }
+
+  .college-img {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .college-img img {
+    width: 120px; /* Adjusted size */
+    height: auto;
+    margin-left: 10px;
+    margin-top: 0;
+  }
+
+  .about-paragraph {
+    font-size: 1.2rem; /* Adjusted font size */
+    line-height: 1.4;
+  }
+
+  .social-icons {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping */
+    justify-content: space-around; /* Space evenly */
+    gap: 50px;
+  }
+
+  .social-icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social-icon img {
+    width: 180px; /* Adjusted icon size */
+    height: 180px;
+  }
+
+  .tech-logos {
+    grid-template-columns: repeat(7, 2fr); /* Adjusted grid for smaller width */
+    gap: 30px;
+  }
+
+  .tech-logo {
+    width: 70px;
+    height: 70px;
+  }
+
+  .achievement-pics {
+    flex-direction: column; /* Stack achievements vertically */
+    align-items: center;
+  }
+
+  .ach-pic,
+  .ach-pic-htm {
+    width: 90%; /* Make them responsive */
+    height: auto;
+  }
+
+  .connect-heading,
+  .my-skill-heading,
+  .achievement-heading {
+    font-size: 1.8rem; /* Slightly reduced headings */
+  }
+
+  .contact-btn {
+    font-size: 1rem; /* Adjusted font size */
+    padding: 8px 15px;
+  }
+}

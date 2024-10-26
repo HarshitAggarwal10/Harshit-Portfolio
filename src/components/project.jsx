@@ -22,7 +22,7 @@ const ProjectsPage = () => {
         return response.data;
       } catch (err) {
         if (i === retries - 1) {
-          throw err; // If all retries fail, throw the error.
+          throw err; 
         }
         await new Promise((resolve) => setTimeout(resolve, delay * (i + 1)));
       }
