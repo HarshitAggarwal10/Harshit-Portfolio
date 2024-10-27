@@ -74,3 +74,19 @@
         margin-top: 35px;
     }
 }
+
+@media (max-width: 376px) {
+    .resume-image {
+        width: 320px;
+    }
+    
+    .download-button {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 321px) {
+    .resume-image {
+        width: 280px;
+    }
+}
