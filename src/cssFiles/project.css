@@ -310,3 +310,42 @@
     font-size: 15px;
   }
 }
+
+@media (max-width: 376px) {
+  .project-title {
+    font-size: 18px;
+    margin-top: -5px;
+  }
+
+  .button-container-visit {
+    height: fit-content;
+    font-size: 15px;
+  }
+
+  .github-repo-ui .repo-stats {
+    font-size: 14px;
+    gap: 9px;
+  }
+
+  .github-repo-ui {
+    width: fit-content;
+  }
+}
+
+@media (max-width: 321px) {
+  .project-title {
+    font-size: 15px;
+  }
+
+  .custom-slider-quiz {
+    width: 250px;
+  }
+
+  .under-construction-message,.under-construction-message2 {
+    font-size: 12px;
+  }
+
+  .github-repo-ui .repo-stats {
+    font-size: 11px;
+  }
+}
