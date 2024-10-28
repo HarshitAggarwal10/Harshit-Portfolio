@@ -5,7 +5,34 @@ import IntroVideo from "../assets/intro.mp4";
 
 const Intro = () => {
   const [loadingProgress, setLoadingProgress] = useState(0);
+  const [fontSize, setFontSize] = useState("2.5rem"); // Default font size
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const updateFontSize = () => {
+      const baseFontSize = 0.6 + loadingProgress / 70;
+
+      // Set font size based on screen width
+      if (window.innerWidth <= 321) {
+        setFontSize(`${Math.min(1.4, baseFontSize)}rem`);
+      } else if (window.innerWidth <= 376) {
+        setFontSize(`${Math.min(1.6, baseFontSize)}rem`);
+      } else if (window.innerWidth <= 426) {
+        setFontSize(`${Math.min(1.4, baseFontSize)}rem`);
+      } else if (window.innerWidth <= 769) {
+        setFontSize(`${Math.min(2.2, baseFontSize)}rem`);
+      } else {
+        setFontSize(`${baseFontSize}rem`);
+      }
+    };
+
+    // Update font size on component mount and loading progress change
+    updateFontSize();
+
+    // Update font size when window is resized
+    window.addEventListener("resize", updateFontSize);
+    return () => window.removeEventListener("resize", updateFontSize);
+  }, [loadingProgress]);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -23,9 +50,6 @@ const Intro = () => {
 
     return () => clearInterval(interval);
   }, [navigate]);
-
-  // Calculate dynamic font size based on loading progress
-  const fontSize = `${0.6 + loadingProgress / 40}rem`; // Example: Starting from 2.5rem and increasing
 
   return (
     <div className="intro-container">

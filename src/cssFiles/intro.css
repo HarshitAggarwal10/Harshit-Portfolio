@@ -1,110 +1,116 @@
 /* Intro.css */
 .intro-container {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-  }
-  
-  .background-video {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: -1;
-  }
-  
-  .loading-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    color: black;
-  }
-  
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.background-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.loading-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: black;
+}
+
+.intro-heading {
+  font-size: 2.7rem;
+  margin-bottom: 30px;
+  margin-left: 50px;
+}
+
+.loading-bar {
+  width: 80%;
+  height: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-left: 50px;
+}
+
+.loading-progress {
+  height: 100%;
+  background-color: #4caf50;
+  width: 0%;
+  transition: width 0.1s ease-in-out;
+}
+
+@media (max-width: 1025px) {
   .intro-heading {
-    font-size: 2.7rem;
-    margin-bottom: 30px;
-    margin-left: 50px;
+    font-size: 2.2rem;
   }
-  
+  .loading-bar {
+    width: 70%;
+    height: 8px;
+    margin-left: 40px;
+  }
+  .loading-content {
+    margin-left: 1rem;
+  }
+}
+
+@media (max-width: 769px) {
+  .intro-heading {
+    font-size: 1.8rem;
+    margin-left: -5px/* Adjust this size as needed for 769px screen */
+  }
+  .loading-content {
+    padding: 0 20px;
+  }
+  .loading-bar {
+    margin-left: 30px;
+  }
+}
+
+@media (max-width: 426px) {
+  .intro-heading {
+    font-size: 1rem; /* Adjusted smaller font size */
+    margin-left: 20px;
+    white-space: nowrap; /* Prevents line break */
+  }
   .loading-bar {
     width: 80%;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.3);
-    border-radius: 5px;
-    overflow: hidden;
-    margin: 0 auto;
-    margin-left: 50px;
+    height: 6px;
   }
-  
-  .loading-progress {
-    height: 100%;
-    background-color: #4caf50;
-    width: 0%;
-    transition: width 0.1s ease-in-out;
+  .loading-content {
+    width: fit-content;
   }
+}
 
-  @media (max-width: 1025px) {
-    .intro-heading {
-      font-size: 2.2rem;
-    }
-    .loading-bar {
-      width: 70%;
-      height: 8px;
-    }
-    .loading-content {
-      margin-left: 1rem;
-    }
+@media (max-width: 376px) {
+  .intro-heading {
+    font-size: 1.2rem;
+    margin-left: 0;
   }
-  
-  @media (max-width: 769px) {
-    .intro-heading {
-      font-size: 1.8rem; /* Adjust this size as needed for 769px screen */
-    }
-    .loading-content {
-      padding: 0 20px;
-      margin-left: -5px;
-    }
+  .loading-bar {
+    width: 90%;
+    height: 5px;
+    margin-left: -5px;
   }
-  
-  @media (max-width: 426px) {
-    .intro-heading {
-      font-size: 1.5rem;
-    }
-    .loading-bar {
-      width: 80%;
-      height: 6px;
-    }
-    .loading-content {
-      padding: 0 15px;
-    }
+  .loading-content {
+    padding: 0 10px;
   }
-  
-  @media (max-width: 376px) {
-    .intro-heading {
-      font-size: 1.2rem;
-      margin-left: 0;
-    }
-    .loading-bar {
-      width: 90%;
-      height: 5px;
-    }
-    .loading-content {
-      padding: 0 10px;
-    }
+}
+
+@media (max-width: 321px) {
+  .intro-heading {
+    font-size: 1rem;
   }
-  
-  @media (max-width: 321px) {
-    .intro-heading {
-      font-size: 1rem;
-    }
-    .loading-bar {
-      width: 95%;
-      height: 4px;
-    }
+  .loading-bar {
+    width: 95%;
+    height: 4px;
   }
-  
+}
