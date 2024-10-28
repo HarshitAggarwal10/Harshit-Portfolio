@@ -15,6 +15,7 @@ import ContactPage from "../components/contact";
 import ResumePage from "../components/resume";
 import ProjectsPage from "../components/project";
 import { useNavigate } from "react-router-dom";
+import Offcanvas from "react-bootstrap/Offcanvas";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
