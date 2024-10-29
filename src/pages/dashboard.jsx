@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "../cssFiles/dashboard.css"; // Make sure you have this file updated
+import "../cssFiles/dashboard.css";
 import MyLogo from "../assets/A.png";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -7,7 +7,9 @@ import {
   faProjectDiagram,
   faFileAlt,
   faEnvelope,
-  faHome, // Import the home icon
+  faHome,
+  faBars,
+  faTimes
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import AboutPage from "../components/about";
@@ -15,13 +17,14 @@ import ContactPage from "../components/contact";
 import ResumePage from "../components/resume";
 import ProjectsPage from "../components/project";
 import { useNavigate } from "react-router-dom";
-import Offcanvas from "react-bootstrap/Offcanvas";
 
 const Dashboard = () => {
   const [activeSection, setActiveSection] = useState("About");
   const [darkMode, setDarkMode] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false); // New state for menu toggle
   const navigate = useNavigate();
   const toggleDarkMode = () => setDarkMode((prevMode) => !prevMode);
+  const toggleMenu = () => setMenuOpen((prevOpen) => !prevOpen); // Toggle function for menu
 
   useEffect(() => {
     if (darkMode) {
@@ -83,7 +86,12 @@ const Dashboard = () => {
           <img src={MyLogo} alt="Profile" className="profile-pic" />
           <h3>Harshit Aggarwal</h3>
         </div>
-        <ul className="dashboard-menu">
+        {/* Menu toggle button */}
+        <div className="menu-toggle" onClick={toggleMenu}>
+          <FontAwesomeIcon icon={menuOpen ? faTimes : faBars} />
+        </div>
+        {/* Conditionally render the menu */}
+        <ul className={`dashboard-menu ${menuOpen ? "open" : ""}`}>
           {Object.keys(menuItems).map((section) => (
             <li
               key={section}
@@ -92,10 +100,9 @@ const Dashboard = () => {
                   handleGitHubClick();
                 } else if (section === "LinkedIn") {
                   handleLinkedInClick();
-                } else if (section === "Home") {
-                  handleHomeClick();
                 } else {
                   setActiveSection(section);
+                  setMenuOpen(false); // Close menu on section selection
                 }
               }}
               className={activeSection === section ? "active" : ""}
@@ -112,7 +119,6 @@ const Dashboard = () => {
 
       <div className="dashboard-right">
         <div className="home-flex">
-          {" "}
           <div className="dashboard-dark-mode-toggle">
             <input
               type="checkbox"
