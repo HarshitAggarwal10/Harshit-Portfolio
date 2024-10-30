@@ -367,7 +367,6 @@
   }
 }
 
-
 @media (max-width: 769px) {
   .banner-container {
     width: 100%;
@@ -551,7 +550,8 @@
     margin-top: -15px;
   }
 
-  .ach-pic, .ach-pic-htm {
+  .ach-pic,
+  .ach-pic-htm {
     width: 100%;
   }
 }
@@ -584,7 +584,8 @@
     font-size: 13px;
   }
 
-  .ach-pic, .ach-pic-htm {
+  .ach-pic,
+  .ach-pic-htm {
     width: 100%;
   }
 }

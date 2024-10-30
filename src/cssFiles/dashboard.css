@@ -1,7 +1,6 @@
 .portfolio-dashboard {
   display: flex;
   height: 100vh;
-  background: linear-gradient(135deg, #2c3e50, #4ca1af);
   font-family: "Poppins", sans-serif;
   perspective: 1000px;
   overflow: hidden;
@@ -202,16 +201,16 @@ body.dark-mode-dashboard {
 
 @media (max-width: 1025px) {
   .dashboard-left {
-    width: 100%; /* Full width for the navbar */
-    height: auto; /* Auto height to adjust with content */
-    position: fixed; /* Fixed at the top */
+    width: 100%; 
+    height: auto; 
+    position: fixed;
     top: 0;
     left: 0;
     display: flex;
-    flex-direction: row; /* Align items horizontally */
+    flex-direction: row; 
     justify-content: space-between;
-    padding: 10px; /* Padding for spacing */
-    z-index: 1000; /* Stay on top of other elements */
+    padding: 10px; 
+    z-index: 1000; 
   }
 
   .profile {
