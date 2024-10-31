@@ -209,7 +209,7 @@ body.dark-mode-dashboard {
     display: flex;
     flex-direction: row; 
     justify-content: space-between;
-    padding: 10px; 
+    padding: 11px; 
     z-index: 1000; 
   }
 
