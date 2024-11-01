@@ -10,9 +10,15 @@ import Project1f from "../assets/p06.png";
 import Project2a from "../assets/p07.png";
 import Project2b from "../assets/p08.png";
 
+// Array of repository URLs
+const repos = [
+  "https://api.github.com/repos/Open-Source-Chandigarh/MeTube",
+  "https://api.github.com/repos/Open-Source-Chandigarh/Heritage-Threads",
+  "https://api.github.com/repos/Open-Source-Chandigarh/SearchMovies",
+];
+
 const ProjectsPage = () => {
-  const [repoData, setRepoData] = useState(null);
-  const [heritageRepoData, setHeritageRepoData] = useState(null);
+  const [repoData, setRepoData] = useState([]);
   const [error, setError] = useState(null);
 
   const retryRequest = async (url, retries = 5, delay = 1000) => {
@@ -21,9 +27,7 @@ const ProjectsPage = () => {
         const response = await axios.get(url);
         return response.data;
       } catch (err) {
-        if (i === retries - 1) {
-          throw err; 
-        }
+        if (i === retries - 1) throw err;
         await new Promise((resolve) => setTimeout(resolve, delay * (i + 1)));
       }
     }
@@ -32,28 +36,17 @@ const ProjectsPage = () => {
   useEffect(() => {
     let isMounted = true;
 
-    // Fetch both GitHub Repo Data with retries
     const fetchRepos = async () => {
       try {
-        const [meTubeData, heritageData] = await Promise.all([
-          retryRequest("https://api.github.com/repos/Open-Source-Chandigarh/MeTube"),
-          retryRequest("https://api.github.com/repos/Open-Source-Chandigarh/Heritage-Threads"),
-        ]);
-
-        if (isMounted) {
-          setRepoData(meTubeData);
-          setHeritageRepoData(heritageData);
-        }
+        const data = await Promise.all(repos.map((url) => retryRequest(url)));
+        if (isMounted) setRepoData(data);
       } catch (err) {
-        if (isMounted) {
-          setError("Failed to fetch repository data after multiple attempts.");
-        }
+        if (isMounted) setError("Failed to fetch repository data after multiple attempts.");
       }
     };
 
     fetchRepos();
 
-    // Image Slider Logic for Quiz and Mind Projects
     let currentQuizIndex = 0;
     const quizImages = document.querySelectorAll(
       ".custom-slider-quiz .custom-slider__slide"
@@ -157,70 +150,32 @@ const ProjectsPage = () => {
         <h1 className="project-title2">Open Source Contributions</h1>
         {error ? (
           <p>{error}</p>
-        ) : repoData ? (
-          <div className="github-repo-ui">
-            <h2 className="repo-title">
-              <a href={repoData.html_url} target="_blank" rel="noopener noreferrer">
-                {repoData.full_name}
-              </a>
-            </h2>
-            <p className="repo-description">{repoData.description}</p>
-
-            <div className="repo-stats">
-              <span>⭐ Stars: {repoData.stargazers_count}</span>
-              <span>🍴 Forks: {repoData.forks_count}</span>
-              <span>🐛 Issues: {repoData.open_issues_count}</span>
+        ) : repoData.length > 0 ? (
+          repoData.map((repo, index) => (
+            <div key={index} className="github-repo-ui">
+              <h2 className="repo-title">
+                <a href={repo.html_url} target="_blank" rel="noopener noreferrer">
+                  {repo.full_name}
+                </a>
+              </h2>
+              <p className="repo-description">{repo.description}</p>
+              <div className="repo-stats">
+                <span>⭐ Stars: {repo.stargazers_count}</span>
+                <span>🍴 Forks: {repo.forks_count}</span>
+                <span>🐛 Issues: {repo.open_issues_count}</span>
+              </div>
+              <div className="repo-buttons">
+                <a
+                  href={repo.html_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="visit-button"
+                >
+                  View on GitHub
+                </a>
+              </div>
             </div>
-
-            <div className="repo-buttons">
-              <a
-                href={repoData.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="visit-button"
-              >
-                View on GitHub
-              </a>
-            </div>
-          </div>
-        ) : (
-          <p>Loading repository details...</p>
-        )}
-      </div>
-
-      <div className="open-source-section">
-        {error ? (
-          <p>{error}</p>
-        ) : heritageRepoData ? (
-          <div className="github-repo-ui">
-            <h2 className="repo-title">
-              <a
-                href={heritageRepoData.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {heritageRepoData.full_name}
-              </a>
-            </h2>
-            <p className="repo-description">{heritageRepoData.description}</p>
-
-            <div className="repo-stats">
-              <span>⭐ Stars: {heritageRepoData.stargazers_count}</span>
-              <span>🍴 Forks: {heritageRepoData.forks_count}</span>
-              <span>🐛 Issues: {heritageRepoData.open_issues_count}</span>
-            </div>
-
-            <div className="repo-buttons">
-              <a
-                href={heritageRepoData.html_url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="visit-button"
-              >
-                View on GitHub
-              </a>
-            </div>
-          </div>
+          ))
         ) : (
           <p>Loading repository details...</p>
         )}

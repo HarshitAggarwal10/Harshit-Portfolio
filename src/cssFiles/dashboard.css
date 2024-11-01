@@ -215,13 +215,13 @@ body.dark-mode-dashboard {
 
   .profile {
     display: flex;
-    flex-direction: row; /* Align profile picture and name horizontally */
+    flex-direction: row;
     align-items: center;
-    gap: 15px; /* Adjust space between profile picture and name */
+    gap: 15px; 
   }
 
   .profile-pic {
-    width: 55px; /* Size of the profile picture */
+    width: 55px; 
     height: 50px;
     background-image: url("../assets/A.png"); /* Use personal picture */
     background-size: cover; /* Ensure the image covers the container */
