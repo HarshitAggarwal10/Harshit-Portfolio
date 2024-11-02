@@ -353,70 +353,64 @@ body.dark-mode-dashboard {
   }
 }
 
-/* Styles for larger screens - hide the menu toggle */
 .menu-toggle {
   display: none;
 }
 
-/* Styles for screens with max-width: 731px */
 @media (max-width: 731px) {
-  /* Display the menu toggle icon */
   .menu-toggle {
     display: block;
     font-size: 24px;
     color: white;
     cursor: pointer;
-    position: fixed;
+    position: absolute;
     top: 25px;
     right: 30px;
+    z-index: 2001; 
   }
 
-  /* Overlay styling for the dashboard menu */
-  .dashboard-menu {
+  .dashboard-right .dashboard-menu {
     display: flex;
-    position: fixed;
+    position: absolute; 
     top: 0;
-    right: 0; /* Position on the right side */
-    width: 30vw; /* Reduce width to 80vw */
-    height: 100vh; /* Full viewport height */
+    right: 0;
+    width: 80vw; 
+    height: 100vh;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease;
-    transform: translateX(100%); /* Off-screen to the right by default */
-    z-index: 2001; /* Ensure it's above other elements */
+    transform: translateX(100%); 
+    z-index: 2000; 
   }
 
-  /* Slide-in effect for the menu when open */
-  .dashboard-menu.open {
-    transform: translateX(0); /* Slide in from the right */
+  .dashboard-right .dashboard-menu.open {
+    transform: translateX(0); 
   }
 
-  /* Style individual menu items */
   .dashboard-menu li {
     margin: 1rem 0;
-    font-size: 0.5rem; /* Smaller font size */
+    font-size: 1rem; 
     color: #ecf0f1;
     cursor: pointer;
     text-align: center;
   }
 
-  /* Ensure text is displayed in the menu */
   .menu-text {
     display: inline;
   }
 
-  /* Dashboard-right container styling for spacing */
   .dashboard-right {
-    margin-top: 80px; /* Prevent overlap with menu */
-    padding: 1rem; /* Reduce padding */
-    width: 100%; /* Full width */
+    margin-top: 80px; 
+    padding: 1rem;
+    width: 100%;
+    position: relative;
   }
 }
 
 .dashboard-right {
   position: relative;
-  z-index: 1; /* Ensure dashboard-right stays below the menu overlay */
+  z-index: 1;
 }

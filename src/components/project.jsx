@@ -10,7 +10,6 @@ import Project1f from "../assets/p06.png";
 import Project2a from "../assets/p07.png";
 import Project2b from "../assets/p08.png";
 
-// Array of repository URLs
 const repos = [
   "https://api.github.com/repos/Open-Source-Chandigarh/MeTube",
   "https://api.github.com/repos/Open-Source-Chandigarh/Heritage-Threads",
@@ -162,7 +161,7 @@ const ProjectsPage = () => {
               <div className="repo-stats">
                 <span>⭐ Stars: {repo.stargazers_count}</span>
                 <span>🍴 Forks: {repo.forks_count}</span>
-                <span>🐛 Issues: {repo.open_issues_count}</span>
+                <span>🐛 Issues: {repo.open_issues_count}</span>       
               </div>
               <div className="repo-buttons">
                 <a
