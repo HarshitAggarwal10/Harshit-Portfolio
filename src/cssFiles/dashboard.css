@@ -257,7 +257,7 @@ body.dark-mode-dashboard {
   }
 
   .menu-icon {
-    font-size: 18px; /* Adjust icon size */
+    font-size: 18px; 
   }
 
   .menu-text {
@@ -265,7 +265,7 @@ body.dark-mode-dashboard {
   }
 
   .dashboard-right {
-    margin-top: 100px; /* Space to prevent content overlap */
+    margin-top: 100px; 
     padding: 20px;
     width: 100%;
   }
@@ -273,9 +273,9 @@ body.dark-mode-dashboard {
 
 @media (max-width: 769px) {
   .dashboard-left {
-    width: 100%; /* Full width for the navbar */
-    height: auto; /* Auto height to adjust with content */
-    position: fixed; /* Fixed at the top */
+    width: 100%; 
+    height: auto; 
+    position: fixed; 
     top: 0;
     left: 0;
     display: flex;
